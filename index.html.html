@@ -1,0 +1,2431 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="narrative">
+  <meta name="design-style" content="briefing">
+  <title>EPPCS Terminale · Réussir l’oral du saut en hauteur (CA1)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces: warm stone-white paper (Briefing) */
+      --background: #faf9f5;
+      --surface-container-low: #ffffff;
+      --surface-container: #f1efe8;
+      --surface-container-high: #e6e2d6;
+
+      /* Ink */
+      --on-surface: #17181a;
+      --on-surface-variant: #56585c;
+
+      /* Rules */
+      --outline: #17181a;
+      --outline-variant: #dedad0;
+      --border-muted: #c8c4b8;
+
+      /* Accents */
+      --primary: #17181a;
+      --on-primary: #faf9f5;
+      --primary-container: #f2b705;
+      --on-primary-container: #17181a;
+      --secondary: #1f4e5f;
+      --tertiary: #785008;
+      --error: #b42318;
+      --on-error: #ffffff;
+
+      /* Supporting soft tints for semantic tags & states */
+      --tint-gold-bg: #f5e6c4;
+      --tint-secondary-bg: #e8f0f2;
+      --tint-positive-bg: #e6f2ec;
+      --tint-error-bg: #fbeae8;
+      --tint-track-sand: #ede9dc;
+
+      /* Data series */
+      --data-1: #1f4e5f;
+      --data-2: #d99000;
+      --data-3: #2b6e52;
+      --data-4: #b84a39;
+      --data-context: #c4bfb2;
+
+      /* Fonts */
+      --font-headline: 'Source Serif 4', serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-label: 'Geist Mono', monospace;
+
+      /* Shape */
+      --rounded: 0.25rem;
+      --rounded-lg: 0.375rem;
+      --rounded-full: 0.25rem;
+
+      /* Style effects */
+      --section-rule: 1.5px solid var(--outline);
+      --card-border: 1px solid var(--outline-variant);
+      --badge-radius: 2px;
+      --heading-tracking: -0.02em;
+      --label-tracking: 0.08em;
+
+      /* Shared semantic & focus tokens */
+      --positive: #2b6e52;
+      --warning: #9a5b00;
+      --focus: #1f4e5f;
+
+      /* Type scale (Narrative) */
+      --display-size: clamp(2.25rem, 1.4rem + 3.2vw, 3.75rem);
+      --headline-size: clamp(1.65rem, 1.2rem + 1.8vw, 2.35rem);
+      --subhead-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4rem);
+      --body-size: clamp(1rem, 0.96rem + 0.2vw, 1.09375rem);
+      --label-size: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);
+
+      /* Spacing scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+      --space-3xl: 6rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.62;
+      -webkit-font-smoothing: antialiased;
+    }
+    header { position: static !important; }
+
+    .page-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-2xl);
+      padding: var(--space-xl) var(--space-lg) var(--space-3xl);
+      max-width: 1120px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Focus rings */
+    :focus-visible {
+      outline: 2.5px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    /* Typography & Briefing Treatments */
+    h1, h2, h3, h4 {
+      margin: 0;
+      font-family: var(--font-headline);
+      font-weight: 600;
+      letter-spacing: var(--heading-tracking);
+      color: var(--on-surface);
+    }
+
+    .title {
+      font-size: var(--display-size);
+      line-height: 1.08;
+      margin-top: var(--space-sm);
+    }
+
+    .section-title {
+      font-size: var(--headline-size);
+      line-height: 1.15;
+      margin-bottom: var(--space-sm);
+    }
+
+    .subhead {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: var(--subhead-size);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--on-surface);
+    }
+
+    .standfirst {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+      line-height: 1.45;
+      color: var(--secondary);
+      margin-top: var(--space-md);
+      max-width: 68ch;
+    }
+
+    .prose {
+      max-width: 66ch;
+      margin: 0;
+    }
+
+    .prose + .prose {
+      margin-top: var(--space-md);
+    }
+
+    .dossier-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      border-bottom: var(--section-rule);
+      padding-bottom: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+
+    .dossier-bar-left {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .dossier-pill {
+      display: inline-block;
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.6875rem;
+      letter-spacing: var(--label-tracking);
+      text-transform: uppercase;
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--badge-radius);
+      line-height: 1.3;
+    }
+
+    .dossier-meta {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 500;
+      color: var(--on-surface-variant);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .index-num {
+      font-family: var(--font-label);
+      font-weight: 600;
+      font-size: var(--label-size);
+      color: var(--secondary);
+      letter-spacing: 0.05em;
+    }
+
+    .figure-card {
+      background: var(--surface-container-low);
+      border: var(--card-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+    }
+
+    .figure-card .value {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-variant-numeric: lining-nums tabular-nums;
+      line-height: 1.05;
+    }
+
+    .aside-box {
+      background: var(--surface-container);
+      border-top: var(--section-rule);
+      padding: var(--space-md) var(--space-lg);
+      border-radius: 0 0 var(--rounded-lg) var(--rounded-lg);
+    }
+
+    .tag-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      background: var(--tint-gold-bg);
+      color: var(--tertiary);
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      border-radius: var(--rounded);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .tag-chip.secondary {
+      background: var(--tint-secondary-bg);
+      color: var(--secondary);
+    }
+
+    .tag-chip.positive {
+      background: var(--tint-positive-bg);
+      color: var(--positive);
+    }
+
+    /* Navigation strip */
+    .dossier-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-top: var(--space-lg);
+      padding-top: var(--space-md);
+      border-top: var(--card-border);
+    }
+
+    .nav-anchor {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      background: var(--surface-container-low);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--rounded);
+      color: var(--on-surface);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+
+    .nav-anchor:hover {
+      background: var(--surface-container);
+      border-color: var(--outline);
+    }
+
+    .nav-anchor .index-num {
+      font-size: 0.75rem;
+    }
+
+    /* KPI Hero Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .kpi-card {
+      background: var(--surface-container-low);
+      border: var(--card-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-xs);
+    }
+
+    .kpi-label {
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--on-surface-variant);
+    }
+
+    .kpi-value {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: clamp(1.75rem, 1.4rem + 1vw, 2.25rem);
+      font-variant-numeric: lining-nums tabular-nums;
+      color: var(--on-surface);
+      line-height: 1.1;
+    }
+
+    .kpi-note {
+      font-size: 0.875rem;
+      color: var(--on-surface-variant);
+      line-height: 1.4;
+    }
+
+    /* Tables */
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      background: var(--surface-container-low);
+      border: var(--card-border);
+      border-radius: var(--rounded-lg);
+    }
+
+    table.briefing-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9375rem;
+    }
+
+    table.briefing-table thead th {
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--on-surface);
+      background: var(--surface-container-high);
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: var(--section-rule);
+    }
+
+    table.briefing-table tbody td {
+      padding: var(--space-md);
+      border-bottom: 1px solid var(--outline-variant);
+      vertical-align: top;
+    }
+
+    table.briefing-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .mono-num {
+      font-family: var(--font-label);
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+    }
+
+    /* Section layouts */
+    .section-block {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-lg);
+    }
+
+    .two-col-asymmetric {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    .two-col-equal {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+
+    /* Buttons & Inputs */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      min-height: 44px;
+      padding: 0.5rem 1rem;
+      border-radius: var(--rounded);
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+
+    .btn-primary:hover {
+      background: var(--secondary);
+    }
+
+    .btn-secondary {
+      background: var(--surface-container-low);
+      border-color: var(--border-muted);
+      color: var(--on-surface);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface-container);
+      border-color: var(--outline);
+    }
+
+    .btn-secondary.active,
+    .btn-pill.active {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+
+    .btn-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      min-height: 44px;
+      padding: 0.45rem 0.875rem;
+      border-radius: var(--rounded);
+      background: var(--surface-container-low);
+      border: 1px solid var(--border-muted);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+
+    .btn-pill:hover {
+      background: var(--surface-container);
+      border-color: var(--outline);
+    }
+
+    .btn-danger-outline {
+      background: var(--surface-container-low);
+      border: 1px solid var(--error);
+      color: var(--error);
+    }
+
+    .btn-danger-outline:hover {
+      background: var(--tint-error-bg);
+    }
+
+    /* Form Controls */
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .field-label {
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--on-surface);
+    }
+
+    .field-hint {
+      font-size: 0.8125rem;
+      color: var(--on-surface-variant);
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      color: var(--on-surface);
+      background: var(--surface-container-low);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--rounded);
+      padding: 0.6rem 0.75rem;
+      min-height: 44px;
+      width: 100%;
+    }
+
+    select {
+      padding-right: 2.25rem;
+    }
+
+    textarea {
+      min-height: 88px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--secondary);
+      min-height: 36px;
+      cursor: pointer;
+    }
+
+    /* Section 01: Rubric Simulator */
+    .rubric-sim {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.9fr);
+      gap: var(--space-lg);
+      align-items: stretch;
+    }
+
+    .criterion-block {
+      padding: var(--space-md);
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      border: var(--card-border);
+    }
+
+    .criterion-block + .criterion-block {
+      margin-top: var(--space-md);
+    }
+
+    .level-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-top: var(--space-sm);
+    }
+
+    .score-display-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-md);
+      background: var(--surface-container-low);
+      border: var(--card-border);
+      border-top: 3px solid var(--primary-container);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+    }
+
+    .score-big {
+      font-family: var(--font-headline);
+      font-size: clamp(2.5rem, 2rem + 1.5vw, 3.25rem);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      color: var(--on-surface);
+      line-height: 1;
+    }
+
+    .score-meter {
+      height: 10px;
+      background: var(--surface-container-high);
+      border-radius: var(--rounded);
+      overflow: hidden;
+    }
+
+    .score-meter-fill {
+      height: 100%;
+      background: var(--secondary);
+      transition: width var(--dur-short) var(--ease-out);
+    }
+
+    /* Section 02: Interactive 4-Phase Biomechanics Explorer */
+    .phase-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-sm);
+    }
+
+    .phase-tab-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-xs);
+      text-align: left;
+      padding: var(--space-sm) var(--space-md);
+      min-height: 64px;
+      background: var(--surface-container-low);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--rounded);
+      cursor: pointer;
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+
+    .phase-tab-btn:hover {
+      background: var(--surface-container);
+      border-color: var(--outline);
+    }
+
+    .phase-tab-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--on-primary);
+    }
+
+    .phase-tab-btn.active .index-num {
+      color: var(--primary-container);
+    }
+
+    .phase-tab-title {
+      font-weight: 700;
+      font-size: 0.9375rem;
+      line-height: 1.25;
+    }
+
+    .phase-explorer-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: var(--space-lg);
+      align-items: start;
+      margin-top: var(--space-md);
+    }
+
+    .svg-stage {
+      background: var(--surface-container-low);
+      border: var(--card-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md);
+    }
+
+    .svg-stage svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .svg-caption {
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      color: var(--on-surface-variant);
+      margin-top: var(--space-sm);
+      border-top: var(--card-border);
+      padding-top: var(--space-sm);
+    }
+
+    /* SVG stylistic classes */
+    .svg-ground { stroke: var(--outline); stroke-width: 1.5; }
+    .svg-grid { stroke: var(--outline-variant); stroke-width: 1; stroke-dasharray: 3 3; }
+    .svg-mat { fill: var(--surface-container-high); stroke: var(--outline); stroke-width: 1.25; }
+    .svg-bar { stroke: var(--data-4); stroke-width: 3; stroke-linecap: round; }
+    .svg-path-muted { stroke: var(--data-context); stroke-width: 2; stroke-dasharray: 5 4; fill: none; }
+    .svg-path-active { stroke: var(--data-1); stroke-width: 3; fill: none; stroke-linecap: round; }
+    .svg-vector { stroke: var(--data-2); stroke-width: 2.5; fill: none; }
+    .svg-athlete { stroke: var(--on-surface); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+    .svg-athlete-head { fill: var(--on-surface); }
+    .svg-athlete-ghost { stroke: var(--data-context); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; fill: none; opacity: 0.6; }
+    .svg-cg { fill: var(--primary-container); stroke: var(--on-surface); stroke-width: 1.5; }
+    .svg-label { font-family: var(--font-label); font-size: 11px; fill: var(--on-surface-variant); }
+    .svg-label-strong { font-family: var(--font-label); font-size: 11px; font-weight: 600; fill: var(--secondary); }
+    .svg-zone-highlight { fill: var(--tint-gold-bg); stroke: var(--data-2); stroke-width: 1.5; stroke-dasharray: 3 2; }
+
+    .phase-detail-panel {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .detail-datum {
+      border-left: 3px solid var(--secondary);
+      padding-left: var(--space-md);
+    }
+
+    .detail-datum.alert {
+      border-left-color: var(--data-4);
+    }
+
+    .detail-datum-title {
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--secondary);
+      margin-bottom: var(--space-xs);
+    }
+
+    .detail-datum.alert .detail-datum-title {
+      color: var(--data-4);
+    }
+
+    /* Section 03: Physics Lab & Chart */
+    .lab-controls {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-md);
+    }
+
+    .slider-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 92px;
+      gap: var(--space-sm);
+      align-items: end;
+    }
+
+    .chart-box {
+      min-height: 310px;
+      position: relative;
+      width: 100%;
+    }
+
+    /* Section 04: Jury Interview Cards */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .qa-list {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-md);
+    }
+
+    .qa-card {
+      background: var(--surface-container-low);
+      border: var(--card-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .qa-card.mastered {
+      border-left: 4px solid var(--positive);
+    }
+
+    .qa-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    .qa-question {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: 1.2rem;
+      line-height: 1.3;
+      color: var(--on-surface);
+      margin-top: var(--space-xs);
+    }
+
+    .qa-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+
+    .qa-answer {
+      background: var(--surface-container);
+      border-top: var(--section-rule);
+      padding: var(--space-md);
+      border-radius: 0 0 var(--rounded) var(--rounded);
+      display: none;
+    }
+
+    .qa-answer.open {
+      display: block;
+    }
+
+    .qa-answer ul {
+      margin: var(--space-sm) 0 0;
+      padding-left: 1.25rem;
+    }
+
+    .qa-answer li + li {
+      margin-top: var(--space-xs);
+    }
+
+    /* Section 05: Oral Builder & Checklist */
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      background: var(--surface-container-low);
+      border: var(--card-border);
+      border-radius: var(--rounded);
+      cursor: pointer;
+      min-height: 44px;
+    }
+
+    .checklist-item input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      accent-color: var(--secondary);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .trame-preview {
+      background: var(--surface-container);
+      border-top: var(--section-rule);
+      padding: var(--space-lg);
+      border-radius: 0 0 var(--rounded-lg) var(--rounded-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .trame-block {
+      background: var(--surface-container-low);
+      border: var(--card-border);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+    }
+
+    .status-msg {
+      font-family: var(--font-label);
+      font-size: 0.8125rem;
+      color: var(--positive);
+      min-height: 1.25rem;
+    }
+
+    /* Container Query adaptation for cards */
+    .card-wrapper { container-type: inline-size; }
+    @container (min-width: 520px) {
+      .card-inner-split {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: var(--space-md);
+      }
+    }
+    @container (max-width: 519px) {
+      .card-inner-split {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--space-md);
+      }
+    }
+
+    /* Footer */
+    .sources-footer {
+      border-top: var(--section-rule);
+      padding-top: var(--space-lg);
+      color: var(--on-surface-variant);
+      font-size: 0.875rem;
+      line-height: 1.55;
+    }
+
+    /* Responsive breakpoints */
+    @media (max-width: 900px) {
+      .rubric-sim,
+      .phase-explorer-grid,
+      .two-col-asymmetric,
+      .two-col-equal {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .phase-tabs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-md) var(--space-md) var(--space-2xl);
+        gap: var(--space-xl);
+      }
+      .phase-tabs {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .figure-card,
+      .qa-card {
+        padding: var(--space-md);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-grid">
+
+    <!-- EN-TÊTE DU DOSSIER -->
+    <header>
+      <div class="dossier-bar">
+        <div class="dossier-bar-left">
+          <span class="dossier-pill">Dossier EPPCS · Terminale</span>
+          <span class="dossier-meta">Champ d’apprentissage n° 1 · Saut en hauteur (Fosbury Flop)</span>
+        </div>
+        <span class="dossier-meta">Épreuve orale · Partie 2 (/8 pts)</span>
+      </div>
+
+      <h1 class="title">Préparer l’épreuve orale sur le saut en hauteur</h1>
+      <p class="standfirst">
+        Grille officielle d’évaluation, analyse biomécanique et physiologique des quatre phases du Fosbury Flop, entraînement aux questions du jury et méthode pour transformer votre analyse vidéo en un exposé réflexif.
+      </p>
+
+      <nav class="dossier-nav" aria-label="Navigation du dossier">
+        <a class="nav-anchor" href="#grille"><span class="index-num">01</span> Grille &amp; indicateurs CA1</a>
+        <a class="nav-anchor" href="#biomecanique"><span class="index-num">02</span> Biomécanique des 4 phases</a>
+        <a class="nav-anchor" href="#comparatif"><span class="index-num">03</span> Profils &amp; laboratoire physique</a>
+        <a class="nav-anchor" href="#entretien"><span class="index-num">04</span> Banque d’entretien jury</a>
+        <a class="nav-anchor" href="#methode"><span class="index-num">05</span> Méthode &amp; fiche orale</a>
+      </nav>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-label">Barème oral · Partie 2</span>
+          <span class="kpi-value">8 pts</span>
+          <span class="kpi-note">4 pts d’analyse réflexive, 4 pts d’argumentation théorique, ±1 pt d’aisance.</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Durée d’impulsion Fosbury</span>
+          <span class="kpi-value">0,12–0,14 s</span>
+          <span class="kpi-note">Contre 0,22 s en saut ventral : exige une réponse pliométrique explosive.</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Apport de la jambe libre</span>
+          <span class="kpi-value">56 %</span>
+          <span class="kpi-note">Part de la vitesse de décollage attribuée au lancer-fixer de hanche (Luhtanen &amp; Komi).</span>
+        </div>
+        <div class="kpi-card">
+          <span class="kpi-label">Alignement final d’élan</span>
+          <span class="kpi-value">30°–40°</span>
+          <span class="kpi-note">Angle des 3 derniers appuis par rapport à la barre avant le décollage vertical.</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- SECTION 01 : GRILLE OFFICIELLE & INDICATEURS CA1 -->
+    <section id="grille" class="section-block" aria-labelledby="title-grille">
+      <div>
+        <div class="dossier-bar">
+          <div class="dossier-bar-left">
+            <span class="dossier-pill">01 · Évaluation officielle</span>
+            <span class="dossier-meta">Commentaire d’une prestation physique · Grille académique</span>
+          </div>
+          <span class="dossier-meta">Exposé + Entretien</span>
+        </div>
+        <h2 id="title-grille" class="section-title">Viser le palier 3–4 points : articuler indicateurs vidéo et savoirs utiles</h2>
+        <p class="prose">
+          En spécialité EPPCS, la deuxième partie de l’épreuve orale évalue votre capacité à commenter une prestation physique filmée (généralement votre propre saut ou une séquence d’entraînement) puis à dialoguer avec le jury. La grille officielle distingue strictement trois niveaux de maîtrise : décrire sans preuve mesurable plafonne à <strong>1 point</strong>, réciter un cours théorique sans le relier explicitement à l’image reste bloqué à <strong>2,5 points</strong> (« connaissances plaquées »), tandis qu’une analyse appuyée sur des indicateurs précis et un projet de transformation ouvre l’accès aux <strong>3 à 4 points</strong> sur chaque critère.
+        </p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="briefing-table">
+          <thead>
+            <tr>
+              <th>Élément évalué &amp; critère</th>
+              <th>Palier faible (0 – 1 pt)</th>
+              <th>Palier intermédiaire (1,5 – 2,5 pts)</th>
+              <th>Palier attendu (3 – 4 pts)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <strong>1. Regard réflexif sur sa pratique</strong><br>
+                <span class="dossier-meta">Qualité de l’analyse · /4 pts</span>
+              </td>
+              <td>Le candidat <em>décrit</em> sa prestation physique sans s’appuyer sur des indicateurs explicites.</td>
+              <td>Le candidat <em>commente</em> sa prestation avec des indicateurs identifiés, mais ceux-ci manquent encore de précision.</td>
+              <td>Le candidat <strong>analyse</strong> sa prestation physique en s’appuyant sur des indicateurs précis et cohérents.</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>2. Éclairage par des connaissances théoriques</strong><br>
+                <span class="dossier-meta">Précision de l’argumentation · /4 pts</span>
+              </td>
+              <td>Connaissances erronées ou approximatives.</td>
+              <td><strong>Connaissances plaquées</strong> : précises mais avec peu de liens explicites avec la prestation observée.</td>
+              <td><strong>Connaissances précises et utiles</strong> : elles fondent un regard réflexif et prospectif sur la pratique personnelle.</td>
+            </tr>
+            <tr>
+              <td>
+                <strong>3. Aisance à l’oral</strong><br>
+                <span class="dossier-meta">Qualité de l’expression</span>
+              </td>
+              <td colspan="3">
+                Ajustement sur l’ensemble de l’épreuve (exposé + entretien) : <span class="mono-num">−1 / −0,5 / 0 / +0,5 / +1 pt</span> (note finale sur 8).
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Simulateur interactif de grille -->
+      <div class="figure-card">
+        <div class="dossier-bar">
+          <div class="dossier-bar-left">
+            <span class="index-num">OUTIL 01</span>
+            <h3 class="subhead">Simulateur de grille EPPCS et diagnostic de posture orale</h3>
+          </div>
+          <span class="tag-chip secondary">Sauvegarde automatique</span>
+        </div>
+
+        <div class="rubric-sim">
+          <div>
+            <div class="criterion-block">
+              <div class="field-label">Critère 1 · Qualité de l’analyse réflexive (/4 pts)</div>
+              <div class="field-hint">Sélectionnez le niveau correspondant à votre usage des indicateurs vidéo.</div>
+              <div class="level-buttons" role="group" aria-label="Note analyse réflexive">
+                <button type="button" class="btn-pill" id="btn-ana-05" onclick="setRubricScore('analyse', 0.5)">0,5 pt · Descriptif</button>
+                <button type="button" class="btn-pill" id="btn-ana-10" onclick="setRubricScore('analyse', 1)">1 pt · Sans indicateur</button>
+                <button type="button" class="btn-pill" id="btn-ana-20" onclick="setRubricScore('analyse', 2)">2 pts · Imprécis</button>
+                <button type="button" class="btn-pill" id="btn-ana-30" onclick="setRubricScore('analyse', 3)">3 pts · Précis</button>
+                <button type="button" class="btn-pill" id="btn-ana-40" onclick="setRubricScore('analyse', 4)">4 pts · Cohérent &amp; expert</button>
+              </div>
+            </div>
+
+            <div class="criterion-block">
+              <div class="field-label">Critère 2 · Argumentation théorique (/4 pts)</div>
+              <div class="field-hint">Évaluez si vos connaissances biomécaniques et physiologiques éclairent réellement votre saut.</div>
+              <div class="level-buttons" role="group" aria-label="Note connaissances théoriques">
+                <button type="button" class="btn-pill" id="btn-con-05" onclick="setRubricScore('connaissances', 0.5)">0,5 pt · Approximatif</button>
+                <button type="button" class="btn-pill" id="btn-con-20" onclick="setRubricScore('connaissances', 2)">2 pts · Plaquées</button>
+                <button type="button" class="btn-pill" id="btn-con-30" onclick="setRubricScore('connaissances', 3)">3 pts · Reliées</button>
+                <button type="button" class="btn-pill" id="btn-con-40" onclick="setRubricScore('connaissances', 4)">4 pts · Réflexif &amp; prospectif</button>
+              </div>
+            </div>
+
+            <div class="criterion-block">
+              <div class="field-label">Critère 3 · Aisance à l’oral (Bonus / Malus)</div>
+              <div class="level-buttons" role="group" aria-label="Bonus malus aisance orale">
+                <button type="button" class="btn-pill" id="btn-ais--1" onclick="setRubricScore('aisance', -1)">−1 pt</button>
+                <button type="button" class="btn-pill" id="btn-ais--05" onclick="setRubricScore('aisance', -0.5)">−0,5 pt</button>
+                <button type="button" class="btn-pill" id="btn-ais-0" onclick="setRubricScore('aisance', 0)">0 pt</button>
+                <button type="button" class="btn-pill" id="btn-ais-05" onclick="setRubricScore('aisance', 0.5)">+0,5 pt</button>
+                <button type="button" class="btn-pill" id="btn-ais-1" onclick="setRubricScore('aisance', 1)">+1 pt</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="score-display-box">
+            <div>
+              <div class="kpi-label">Note estimée · Partie 2</div>
+              <div class="score-big" id="rubric-total-display">5,0 / 8</div>
+              <div class="score-meter" style="margin-top: var(--space-sm);">
+                <div class="score-meter-fill" id="rubric-meter-fill" style="width: 62.5%;"></div>
+              </div>
+            </div>
+
+            <div class="aside-box" style="margin-top: 0;">
+              <div class="detail-datum-title" id="rubric-profile-title">Profil : Transition vers l’analyse</div>
+              <p id="rubric-profile-advice" style="margin: 0; font-size: 0.9375rem;">
+                Votre note repose sur des bases identifiées mais risque de stagner si les savoirs restent généraux. Associez chaque observation chiffrée (angle, nombre d’appuis) à un mécanisme biomécanique précis.
+              </p>
+            </div>
+
+            <div class="kpi-note" id="rubric-breakdown-line">
+              Analyse : 2 pts · Connaissances : 3 pts · Aisance : 0 pt
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Indicateurs quantitatifs et qualitatifs CA1 -->
+      <div class="two-col-equal">
+        <div class="figure-card">
+          <span class="index-num">INDICATEURS QUANTITATIFS · FAMILLE DES SAUTS</span>
+          <h3 class="subhead" style="margin-top: var(--space-xs); margin-bottom: var(--space-sm);">Ce qui se mesure sur le sautoir et la vidéo</h3>
+          <ul style="margin: 0; padding-left: 1.2rem;">
+            <li><strong>Performance réalisée :</strong> hauteur de barre franchie (en m), comparée à sa taille (différentiel taille/barre) ou à une marque de détente (test hauteur touchée).</li>
+            <li><strong>Distance et gestion du dernier appui :</strong> étalonnage de la marque de départ (6 à 8 appuis au lycée), longueur relative de la pénultième foulée et distance du pied d’appel par rapport au plan vertical de la barre.</li>
+            <li><strong>Angle d’envol et d’attaque :</strong> orientation des 3 derniers appuis (30° à 40° par rapport à la barre) et redressement du vecteur vitesse au décollage.</li>
+            <li><strong>Hauteur et trajectoire du Centre de Gravité (CG) :</strong> abaissement sur l’avant-dernier appui puis altitude maximale atteinte au-dessus du tapis.</li>
+          </ul>
+        </div>
+
+        <div class="figure-card">
+          <span class="index-num">INDICATEURS QUALITATIFS &amp; PROTOCOLE VIDÉO</span>
+          <h3 class="subhead" style="margin-top: var(--space-xs); margin-bottom: var(--space-sm);">Ce qui s’observe dans l’organisation motrice</h3>
+          <ul style="margin: 0; padding-left: 1.2rem;">
+            <li><strong>Progressivité du rythme :</strong> accélération continue sans piétinement ni freinage sur les 4 derniers appuis curvilignes.</li>
+            <li><strong>Posture à l’impulsion et équilibre balistique :</strong> alignement pied d’appel–bassin–épaule, « passage par-dessus » l’appui sans bascule prématurée des épaules vers la barre.</li>
+            <li><strong>Segments libres et regard :</strong> genou haut devant (genou fixé), bras propulseur bloqué en fin de course, orientation de la tête puis menton sur la poitrine.</li>
+            <li><strong>Esquive et abduction :</strong> cambrure au point mort haut puis ramené dynamique des jambes.</li>
+            <li><strong>Cadrage vidéo conseillé :</strong> prise de <strong>profil en plan fixe assez éloigné</strong> (liaison course–appel et parabole) complétée par une vue <strong>de face</strong> (inclinaison en courbe et alignement à l’appel).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 02 : BIOMÉCANIQUE ET PHYSIOLOGIE DES 4 PHASES -->
+    <section id="biomecanique" class="section-block" aria-labelledby="title-biomeca">
+      <div>
+        <div class="dossier-bar">
+          <div class="dossier-bar-left">
+            <span class="dossier-pill">02 · Biomécanique &amp; Physiologie</span>
+            <span class="dossier-meta">Liaison course–impulsion–franchissement</span>
+          </div>
+          <span class="dossier-meta">Principe P.E.R.U.</span>
+        </div>
+        <h2 id="title-biomeca" class="section-title">Comment les quatre phases du Fosbury transforment la course en élévation</h2>
+        <p class="prose">
+          Selon les fondamentaux athlétiques (principe <strong>P.E.R.U.</strong>), tout saut obéit à une chaîne causale continue : <strong>P</strong>roduction d’énergie cinétique lors de l’élan, <strong>E</strong>ntretien de la vitesse sans décélération, <strong>R</strong>estitution par déformation de trajectoire lors du dernier appui, puis <strong>U</strong>tilisation de l’élan et des rotations en suspension pour franchir l’obstacle. Le Fosbury Flop cherche ainsi à résoudre trois enjeux contradictoires : atteindre une vitesse optimale sans aplatir l’angle d’envol, générer les rotations permettant le passage dorsal et élever le centre de gravité au plus haut.
+        </p>
+      </div>
+
+      <!-- Explorateur interactif des 4 phases -->
+      <div class="figure-card">
+        <div class="dossier-bar">
+          <div class="dossier-bar-left">
+            <span class="index-num">OUTIL 02</span>
+            <h3 class="subhead">Explorateur cinématique des quatre phases du saut</h3>
+          </div>
+          <span class="dossier-meta" id="phase-indicator-meta">Phase 01 / 04</span>
+        </div>
+
+        <div class="phase-tabs" role="tablist" aria-label="Phases du Fosbury Flop">
+          <button type="button" class="phase-tab-btn active" id="phase-btn-0" role="tab" aria-selected="true" onclick="selectPhase(0)">
+            <span class="index-num">PHASE 01</span>
+            <span class="phase-tab-title">Course curviligne</span>
+          </button>
+          <button type="button" class="phase-tab-btn" id="phase-btn-1" role="tab" aria-selected="false" onclick="selectPhase(1)">
+            <span class="index-num">PHASE 02</span>
+            <span class="phase-tab-title">Avant-dernière foulée</span>
+          </button>
+          <button type="button" class="phase-tab-btn" id="phase-btn-2" role="tab" aria-selected="false" onclick="selectPhase(2)">
+            <span class="index-num">PHASE 03</span>
+            <span class="phase-tab-title">Impulsion &amp; segments</span>
+          </button>
+          <button type="button" class="phase-tab-btn" id="phase-btn-3" role="tab" aria-selected="false" onclick="selectPhase(3)">
+            <span class="index-num">PHASE 04</span>
+            <span class="phase-tab-title">Franchissement dorsal</span>
+          </button>
+        </div>
+
+        <div class="phase-explorer-grid">
+          <div class="svg-stage">
+            <svg id="fosbury-svg" viewBox="0 0 560 390" role="img" aria-label="Schéma biomécanique interactif du Fosbury Flop">
+              <!-- Vue aérienne : zone d'élan en virgule -->
+              <text x="16" y="20" class="svg-label-strong">VUE DE DESSUS · TRAJECTOIRE EN « VIRGULE » ET ANGLE D’ATTAQUE (30°–40°)</text>
+              <rect x="330" y="34" width="190" height="72" rx="4" class="svg-mat" />
+              <text x="425" y="74" text-anchor="middle" class="svg-label">Tapis de réception</text>
+              <line x1="335" y1="112" x2="515" y2="112" class="svg-bar" />
+              <text x="518" y="116" class="svg-label">Barre</text>
+
+              <!-- Tracé de référence course -->
+              <path d="M 48 128 L 155 128 Q 252 128 312 102" class="svg-path-muted" />
+              <line x1="312" y1="102" x2="352" y2="85" class="svg-grid" />
+
+              <!-- Zones surbrillantes dynamiques en vue de dessus -->
+              <path id="svg-top-active" d="M 155 128 Q 252 128 312 102" class="svg-path-active" />
+              <circle id="svg-top-marker" cx="242" cy="119" r="6" class="svg-cg" />
+              <text id="svg-top-note" x="155" y="146" class="svg-label-strong">Inclinaison intérieure (force centripète)</text>
+
+              <!-- Séparateur -->
+              <line x1="16" y1="164" x2="544" y2="164" class="svg-grid" />
+              <text x="16" y="184" class="svg-label-strong">VUE DE PROFIL · POSTURE, CENTRE DE GRAVITÉ ET VECTEURS</text>
+
+              <!-- Sol et tapis en vue de profil -->
+              <line x1="20" y1="350" x2="540" y2="350" class="svg-ground" />
+              <rect x="365" y="302" width="155" height="48" rx="3" class="svg-mat" />
+              <line x1="350" y1="350" x2="350" y2="235" class="svg-ground" />
+              <line x1="342" y1="242" x2="358" y2="242" class="svg-bar" />
+              <text x="350" y="227" text-anchor="middle" class="svg-label">Barre (h)</text>
+
+              <!-- Trajectoire parabolique théorique du CG -->
+              <path d="M 60 282 L 175 288 L 265 280 Q 338 212 410 245 Q 445 264 468 296" class="svg-path-muted" />
+
+              <!-- Conteneur dynamique pour la silhouette et les vecteurs de la phase active -->
+              <g id="svg-profile-dynamic"></g>
+            </svg>
+            <div class="svg-caption" id="svg-stage-caption">
+              Légende : le disque doré matérialise le Centre de Gravité (CG). Les flèches orange indiquent les forces résultantes à l’œuvre durant la phase sélectionnée.
+            </div>
+          </div>
+
+          <div class="phase-detail-panel" id="phase-detail-panel">
+            <!-- Rempli dynamiquement par selectPhase() -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Synthèse approfondie permanente (tout reste lisible au scroll) -->
+      <div class="two-col-equal">
+        <article class="figure-card">
+          <span class="index-num">02.A · LA COURBE EN VIRGULE</span>
+          <h3 class="subhead" style="margin-top: var(--space-xs); margin-bottom: var(--space-sm);">Inclinaison centripète et prise d’avance des appuis</h3>
+          <p class="prose">
+            Après une portion rectiligne destinée à vaincre l’inertie et à développer la vitesse horizontale (sur 6 à 8 appuis au lycée, par exemple 4 en amplitude et 4 en fréquence), le sauteur engage un virage sur les 3 à 5 dernières foulées. Cette trajectoire curviligne engendre une <strong>force centrifuge</strong> qui pousse le coureur vers l’extérieur. Pour la compenser, l’athlète s’incline vers l’intérieur de la courbe et crée une <strong>force centripète</strong>.
+          </p>
+          <p class="prose">
+            À 8 m/s dans une courbe de 32 m de rayon, cet « écrasement » soumet un athlète de 70 kg à un supplément apparent de masse d’environ <strong>1,5 kg</strong>. Cette charge provoque trois effets déterminants : un abaissement naturel du Centre de Gravité, une <strong>mise en tension récessive</strong> des muscles extenseurs antigravitaires, et une <strong>prise d’avance latérale des appuis</strong> qui place le pied d’appel entre la projection verticale du CG et la barre, limitant ainsi la poussée excentrique parasite.
+          </p>
+        </article>
+
+        <article class="figure-card">
+          <span class="index-num">02.B · LA PÉNULTIÈME FOULÉE</span>
+          <h3 class="subhead" style="margin-top: var(--space-xs); margin-bottom: var(--space-sm);">Abaissement du CG et cycle étirement–raccourcissement</h3>
+          <p class="prose">
+            L’avant-dernière foulée (pénultième) est volontairement allongée et posée près de la projection du CG (contact talon–pointe, tibia presque vertical à l’impact) afin d’abaisser les hanches sans décélération brutale. Le buste se redresse légèrement en arrière tandis que le genou d’appel reste ouvert à l’impact (<strong>165°–170°</strong>) avant un amorti contrôlé de <strong>5° à 10°</strong>. Une flexion excessive dissiperait l’énergie cinétique ; une jambe trop raide empêcherait la conversion vers le haut.
+          </p>
+          <p class="prose">
+            Sur le plan physiologique, ce « frein contrôlé » déclenche un <strong>cycle étirement–raccourcissement (CER)</strong> : après une pré-activation isométrique (quadriceps, verrouillage de cheville en flexion dorsale), les extenseurs travaillent brièvement en régime <strong>excentrique</strong> pour stocker de l’énergie élastique dans le complexe muscle–tendon (quadriceps, ischio-jambiers, fessiers, triceps sural et tendon d’Achille), immédiatement restituée en régime <strong>concentrique</strong> explosif à l’appel.
+          </p>
+        </article>
+
+        <article class="figure-card">
+          <span class="index-num">02.C · L’IMPULSION « PAR-DESSUS »</span>
+          <h3 class="subhead" style="margin-top: var(--space-xs); margin-bottom: var(--space-sm);">Alignement segmentaire et blocage des segments libres</h3>
+          <p class="prose">
+            L’impulsion est la déformation maximale de la trajectoire du CG lors du dernier appui (posé par le talon dans l’axe des 30°–40°, jambe presque tendue). Comme le formalise l’approche FFA (Patrick Léger), le sauteur de haut niveau passe « par-dessus » l’appui, corps gainé et aligné (cheville–genou–hanche–épaule controlatérale à « 6 heures ») comme un bâton qui bute pour convertir l’avancée en élévation verticale.
+          </p>
+          <p class="prose">
+            Les <strong>segments libres</strong> (jambe libre opposée au pied d’appel, bras et tête) sont lancés près de l’axe du corps puis <strong>bloqués brutalement</strong> en fin de course. D’après Luhtanen et Komi (1978), cette action de « lancer–fixer » de la hanche libre contribue à <strong>56 % de la vitesse de décollage</strong>, allégeant l’impulsion et amorçant la rotation longitudinale qui place le dos face à la barre. Attention : le genou libre doit être la <em>conséquence</em> de l’avancée du bassin et non la cause d’un recul des hanches.
+          </p>
+        </article>
+
+        <article class="figure-card">
+          <span class="index-num">02.D · ESQUIVE &amp; SÉCURITÉ</span>
+          <h3 class="subhead" style="margin-top: var(--space-xs); margin-bottom: var(--space-sm);">Masquage successif et passage du CG sous la barre</h3>
+          <p class="prose">
+            Après avoir maintenu le grandissement jusqu’au point mort haut, le sauteur organise un masquage successif autour de la barre : bascule des épaules pendant que les talons se rapprochent des fesses (silhouette cambrée pour esquiver le bassin), puis <strong>ramené dynamique des jambes</strong> dès que le bassin a franchi le plan vertical de la barre. Cette géométrie en arc explique la supériorité du Fosbury : le <strong>Centre de Gravité peut passer sous la barre</strong> tandis que le corps la franchit au-dessus.
+          </p>
+          <p class="prose">
+            Trois règles de sécurité sont impératives à l’oral comme sur le terrain : garder le <strong>menton rentré sur la poitrine</strong> lors de l’esquive (pour éviter un retour des genoux au visage et chuter sur les épaules/haut du dos), respecter l’axe d’attaque à 30°–40° et ne pas appeler trop près du second poteau afin que la trajectoire parabolique aboutisse au cœur du tapis.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 03 : PROFILS, PHYSIOLOGIE ET LABORATOIRE MÉCANIQUE -->
+    <section id="comparatif" class="section-block" aria-labelledby="title-comp">
+      <div>
+        <div class="dossier-bar">
+          <div class="dossier-bar-left">
+            <span class="dossier-pill">03 · Profils &amp; Modèle physique</span>
+            <span class="dossier-meta">Flop vitesse vs Flop amplitude · Puissance &amp; élasticité</span>
+          </div>
+          <span class="dossier-meta">H = V₀² / 2g</span>
+        </div>
+        <h2 id="title-comp" class="section-title">Adapter sa stratégie d’élan à ses ressources morphologiques et musculaires</h2>
+        <p class="prose">
+          Tous les sauteurs ne produisent pas la même puissance par la même voie. L’analyse scientifique distingue deux styles de gestion de la course d’élan — le <strong>Flop amplitude</strong> et le <strong>Flop vitesse</strong> — ainsi qu’une rupture majeure face à l’ancien saut ventral sur le plan de l’impulsion et de la raideur du complexe muscle–tendon (comme l’illustre l’étude comparative entre Stefan Holm, 1,81 m pour 2,40 m franchis, et Donald Thomas, 2,35 m grâce à un tendon d’Achille de 26 cm jouant un rôle de ressort).
+        </p>
+      </div>
+
+      <div class="two-col-asymmetric">
+        <div class="table-wrap">
+          <table class="briefing-table">
+            <thead>
+              <tr>
+                <th>Paramètre</th>
+                <th>Flop Amplitude</th>
+                <th>Flop Vitesse</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Morphologie type</strong></td>
+                <td>Grands gabarits (<span class="mono-num">≥ 1,90 m</span>), longs leviers inférieurs.</td>
+                <td>Gabarits plus compacts (<span class="mono-num">&lt; 1,90 m</span>).</td>
+              </tr>
+              <tr>
+                <td><strong>Vitesse d’arrivée</strong></td>
+                <td><span class="mono-num">7,0 à 7,5 m/s</span> (chemin d’impulsion allongé).</td>
+                <td><span class="mono-num">8,0 à 8,5 m/s</span> (fréquence gestuelle élevée).</td>
+              </tr>
+              <tr>
+                <td><strong>Abaissement du CG</strong></td>
+                <td>Abaissement marqué par flexion sur l’avant-dernier appui (pénultième plus longue).</td>
+                <td>Abaissement issu surtout de l’inclinaison latérale en courbe (flexions de genou plus faibles).</td>
+              </tr>
+              <tr>
+                <td><strong>Action des bras</strong></td>
+                <td>Souvent synchronisés vers l’arrière sur les 3 derniers appuis (blocage simultané).</td>
+                <td>Action dissociée (alternée avec la course) pour conserver la vitesse horizontale.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="figure-card">
+          <div class="dossier-bar" style="margin-bottom: var(--space-sm);">
+            <span class="index-num">DONNÉES COMPARÉES</span>
+            <span class="dossier-meta">Durée d’impulsion &amp; vitesse d’approche</span>
+          </div>
+          <div class="chart-box" style="min-height: 290px;">
+            <canvas id="profiles-chart" aria-label="Graphique comparatif Fosbury Vitesse, Fosbury Amplitude et Ventral"></canvas>
+          </div>
+          <p class="field-hint" style="margin: var(--space-sm) 0 0;">
+            Sources : Dapena (1980), Peyloz (1976) et mesures comparatives Fosbury / Ventral (Brumel). Le Fosbury exige une vitesse d’approche supérieure et une impulsion nettement plus brève.
+          </p>
+        </div>
+      </div>
+
+      <!-- Laboratoire interactif de trajectoire et puissance -->
+      <div class="figure-card">
+        <div class="dossier-bar">
+          <div class="dossier-bar-left">
+            <span class="index-num">OUTIL 03</span>
+            <h3 class="subhead">Laboratoire mécanique : vitesse verticale (V₀), hauteur du CG et franchissement</h3>
+          </div>
+          <span class="tag-chip">Modèle physique H = V₀² / 2g</span>
+        </div>
+
+        <div class="two-col-asymmetric">
+          <div class="lab-controls">
+            <div class="field-group">
+              <label class="field-label" for="slider-h0">Hauteur initiale du CG au décollage (h₀, en m)</label>
+              <span class="field-hint">Dépend de votre taille et de votre grandissement à l’appel (alignement à « 6 heures »).</span>
+              <div class="slider-row">
+                <input type="range" id="slider-h0" min="0.95" max="1.40" step="0.01" value="1.15" oninput="syncLabFromSlider('h0', this.value)">
+                <input type="number" id="input-h0" min="0.95" max="1.40" step="0.01" value="1.15" aria-label="Hauteur initiale du CG en mètres" oninput="syncLabFromNumber('h0', this.value)">
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="slider-v0">Vitesse verticale initiale créée à l’appel (V₀, en m/s)</label>
+              <span class="field-hint">Déterminée par la conversion d’élan, le cycle étirement–raccourcissement et le lancer des segments libres.</span>
+              <div class="slider-row">
+                <input type="range" id="slider-v0" min="2.4" max="4.8" step="0.05" value="3.30" oninput="syncLabFromSlider('v0', this.value)">
+                <input type="number" id="input-v0" min="2.4" max="4.8" step="0.05" value="3.30" aria-label="Vitesse verticale initiale en mètres par seconde" oninput="syncLabFromNumber('v0', this.value)">
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="slider-esquive">Efficacité de l’esquive Fosbury (décalage barre / CG, en cm)</label>
+              <span class="field-hint">Positif : le CG passe sous la barre grâce à la cambrure. Négatif : franchissement « assis » ou perte d’arc.</span>
+              <div class="slider-row">
+                <input type="range" id="slider-esquive" min="-8" max="12" step="1" value="4" oninput="syncLabFromSlider('esquive', this.value)">
+                <input type="number" id="input-esquive" min="-8" max="12" step="1" value="4" aria-label="Efficacité de l'esquive en centimètres" oninput="syncLabFromNumber('esquive', this.value)">
+              </div>
+            </div>
+          </div>
+
+          <div class="score-display-box">
+            <div>
+              <div class="kpi-label">Hauteur théorique de barre franchissable</div>
+              <div class="score-big" id="lab-bar-height">1,75 m</div>
+              <p class="kpi-note" id="lab-formula-detail" style="margin-top: var(--space-sm);">
+                h₀ (1,15 m) + élévation ΔH (0,56 m) + esquive (+0,04 m)
+              </p>
+            </div>
+
+            <div class="card-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-sm);">
+              <div class="aside-box" style="padding: var(--space-sm) var(--space-md);">
+                <div class="kpi-label">Élévation ΔH = V₀² / 2g</div>
+                <div class="mono-num" id="lab-delta-h" style="font-size: 1.25rem;">0,56 m</div>
+              </div>
+              <div class="aside-box" style="padding: var(--space-sm) var(--space-md);">
+                <div class="kpi-label">Altitude max du CG</div>
+                <div class="mono-num" id="lab-max-cg" style="font-size: 1.25rem;">1,71 m</div>
+              </div>
+            </div>
+
+            <div class="aside-box" style="margin-top: 0;">
+              <div class="detail-datum-title">Lecture pour votre oral</div>
+              <p id="lab-oral-takeaway" style="margin: 0; font-size: 0.9rem;">
+                Parce que V₀ intervient au carré dans H = V₀² / 2g, gagner seulement 0,20 m/s de vitesse verticale à l’impulsion (via la course curviligne et les segments libres) rapporte davantage de centimètres qu’une cambrure forcée en l’air.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 04 : BANQUE D'ENTRETIEN DU JURY -->
+    <section id="entretien" class="section-block" aria-labelledby="title-entretien">
+      <div>
+        <div class="dossier-bar">
+          <div class="dossier-bar-left">
+            <span class="dossier-pill">04 · Entretien avec le jury</span>
+            <span class="dossier-meta">Questions types CA1 · Pistes de réponses argumentées</span>
+          </div>
+          <span class="dossier-meta" id="qa-mastery-counter">0 / 10 questions maîtrisées</span>
+        </div>
+        <h2 id="title-entretien" class="section-title">S’entraîner aux relances du jury avec des réponses sourcées et concrètes</h2>
+        <p class="prose">
+          Après votre exposé sur vidéo, le jury élargit le questionnement au Champ d’apprentissage n° 1, à l’échauffement, à la biomécanique des sauts, aux exercices de transformation envisageables et aux enjeux de santé et de culture sportive. Testez-vous ci-dessous en formulant votre réponse avant d’afficher les éléments attendus.
+        </p>
+      </div>
+
+      <div class="figure-card">
+        <div class="filter-bar">
+          <div class="filter-pills" role="group" aria-label="Filtrer les questions par thème">
+            <button type="button" class="btn-pill active" id="filter-all" onclick="filterQuestions('all')">Toutes (10)</button>
+            <button type="button" class="btn-pill" id="filter-ca1" onclick="filterQuestions('ca1')">Transversal CA1 &amp; Vidéo</button>
+            <button type="button" class="btn-pill" id="filter-biomeca" onclick="filterQuestions('biomeca')">Biomécanique &amp; Sauts</button>
+            <button type="button" class="btn-pill" id="filter-physio" onclick="filterQuestions('physio')">Échauffement &amp; Pliométrie</button>
+            <button type="button" class="btn-pill" id="filter-sante" onclick="filterQuestions('sante')">Santé, Culture &amp; Règles</button>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="pickRandomQuestion()">Tirer une question au sort</button>
+        </div>
+      </div>
+
+      <div class="qa-list" id="qa-list">
+        <!-- Généré dynamiquement à partir des sources -->
+      </div>
+    </section>
+
+    <!-- SECTION 05 : MÉTHODOLOGIE & FICHE ORALE PERSONNELLE -->
+    <section id="methode" class="section-block" aria-labelledby="title-methode">
+      <div>
+        <div class="dossier-bar">
+          <div class="dossier-bar-left">
+            <span class="dossier-pill">05 · Méthodologie &amp; Atelier oral</span>
+            <span class="dossier-meta">Structurer sa prestation · Éviter les connaissances plaquées</span>
+          </div>
+          <span class="dossier-meta">Trame personnalisée</span>
+        </div>
+        <h2 id="title-methode" class="section-title">Structurer son commentaire vidéo en 4 temps et préparer sa fiche personnelle</h2>
+        <p class="prose">
+          La clé pour passer du palier 2,5 pts au palier 3–4 pts tient en une règle simple : <strong>ne jamais réciter un concept théorique isolément</strong>. Chaque notion biomécanique (force centripète, cycle étirement–raccourcissement, lancer–fixer des segments libres) doit répondre directement à un fait observé sur votre vidéo (« à 0:04, mon genou fléchit fortement sur l’avant-dernier appui, ce qui dissipe… ») puis déboucher sur une perspective d’entraînement réaliste.
+        </p>
+      </div>
+
+      <div class="two-col-equal">
+        <div class="figure-card">
+          <span class="tag-chip positive">Stratégie 3–4 pts · Exposé structuré</span>
+          <h3 class="subhead" style="margin-top: var(--space-sm); margin-bottom: var(--space-sm);">La boucle Observation → Explication → Remédiation</h3>
+          <ol style="margin: 0; padding-left: 1.25rem;">
+            <li><strong>Cadrage rapide (20 s) :</strong> présenter la hauteur de barre, son profil (Amplitude ou Vitesse), son nombre d’appuis (ex. 8 appuis : 4+4) et son objectif de séance.</li>
+            <li><strong>Analyse chronologique appuyée sur l’image (2 min) :</strong> pointer 2 ou 3 indicateurs précis (inclinaison en courbe, posture à la pénultième foulée, orientation verticale à l’appel, esquive) et les éclairer aussitôt par la biomécanique ou la physiologie.</li>
+            <li><strong>Hiérarchisation du maillon faible (45 s) :</strong> identifier la cause première (souvent située dans les 3 derniers appuis plutôt que dans le franchissement en l’air).</li>
+            <li><strong>Regard prospectif (45 s) :</strong> proposer un exercice concret (test de hauteur touchée, multibonds, gammes d’impulsion brève, étalonnage), la ressource visée et un indicateur de progrès mesurable.</li>
+          </ol>
+        </div>
+
+        <div class="figure-card">
+          <span class="tag-chip" style="background: var(--tint-error-bg); color: var(--error);">Pièges fréquents à éviter</span>
+          <h3 class="subhead" style="margin-top: var(--space-sm); margin-bottom: var(--space-sm);">Pourquoi des candidats perdent des points malgré leurs révisions</h3>
+          <ul style="margin: 0; padding-left: 1.2rem;">
+            <li><strong>Le récit purement descriptif :</strong> « Je prends mon élan, je saute sur le dos et je touche la barre avec les mollets » sans indicateur chiffré ni vocabulaire technique (0–1 pt).</li>
+            <li><strong>La récitation plaquée :</strong> définir le cycle étirement–raccourcissement pendant deux minutes sans jamais montrer à quel moment il opère (ou fait défaut) sur sa propre vidéo (plafonné à 2,5 pts).</li>
+            <li><strong>La confusion cause / conséquence :</strong> attribuer l’échec uniquement au passage de barre alors que l’orientation vers la barre ou le freinage de la pénultième foulée a déjà déterminé la parabole.</li>
+            <li><strong>L’absence de régulation concrète :</strong> dire « il faut que je saute plus haut » sans préciser ni l’exercice, ni les répétitions, ni la ressource musculaire ou nerveuse sollicitée.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Constructeur interactif de fiche orale & Checklist -->
+      <div class="figure-card card-wrapper">
+        <div class="dossier-bar">
+          <div class="dossier-bar-left">
+            <span class="index-num">OUTIL 04</span>
+            <h3 class="subhead">Atelier de trame orale personnelle et checklist de préparation</h3>
+          </div>
+          <span class="status-msg" id="save-status-msg" aria-live="polite"></span>
+        </div>
+
+        <div class="two-col-asymmetric">
+          <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+            <div class="card-inner-split">
+              <div class="field-group">
+                <label class="field-label" for="prep-height">Hauteur de barre filmée (m)</label>
+                <input type="text" id="prep-height" placeholder="Ex. : 1,45 m (pour 1,72 m)" oninput="updatePersonalTrame()">
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="prep-profile">Style et élan étalonné</label>
+                <select id="prep-profile" onchange="updatePersonalTrame()">
+                  <option value="Flop vitesse (8 appuis : 4 rectilignes + 4 en courbe)">Flop vitesse (8 appuis : 4+4)</option>
+                  <option value="Flop amplitude (8 appuis : 4 rectilignes + 4 en courbe)">Flop amplitude (8 appuis : 4+4)</option>
+                  <option value="Élan court d'apprentissage (6 appuis en virgule)">Élan court (6 appuis en virgule)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="prep-strength">Point fort observé sur ma vidéo (avec indicateur)</label>
+              <textarea id="prep-strength" placeholder="Ex. : En vue de profil, mes 3 derniers appuis restent accélérés sans piétinement et mon genou libre monte haut à l'appel." oninput="updatePersonalTrame()"></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="prep-weakness">Maillon limitant identifié</label>
+              <select id="prep-weakness" onchange="updatePersonalTrame()">
+                <option value="freinage-penultieme">Freinage excessif / flexion trop importante sur l’avant-dernière foulée</option>
+                <option value="appel-barre">Impulsion dirigée vers la barre plutôt qu’à la verticale (« par-dessus »)</option>
+                <option value="courbe-redresse">Redressement prématuré dans le virage (perte d’inclinaison centripète)</option>
+                <option value="esquive-assise">Franchissement assis (défaut de cambrure ou ramené tardif des jambes)</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="prep-drill">Exercice de remédiation &amp; ressource ciblée (facultatif)</label>
+              <textarea id="prep-drill" placeholder="Ex. : Test de hauteur touchée (panneau de basket) avec élan en courbe + 4x6 multibonds pour renforcer l'élasticité du tendon d'Achille." oninput="updatePersonalTrame()"></textarea>
+            </div>
+
+            <div>
+              <div class="field-label" style="margin-bottom: var(--space-sm);">Checklist avant l’épreuve orale (<span id="checklist-count">0</span> / 6 validés)</div>
+              <div style="display: flex; flex-direction: column; gap: var(--space-sm);" id="checklist-container">
+                <!-- Généré dynamiquement -->
+              </div>
+            </div>
+          </div>
+
+          <div class="trame-preview">
+            <div>
+              <span class="dossier-pill">Aperçu de votre trame orale</span>
+              <p class="field-hint" style="margin: var(--space-xs) 0 0;">
+                Cette synthèse relie automatiquement vos données personnelles aux mécanismes biomécaniques attendus par le jury.
+              </p>
+            </div>
+
+            <div class="trame-block" id="trame-output">
+              <!-- Généré dynamiquement -->
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm);">
+              <button type="button" class="btn btn-primary" onclick="exportPersonalBrief()">Exporter ma fiche (.txt)</button>
+              <button type="button" class="btn btn-danger-outline" id="btn-reset-all" onclick="handleResetClick(this)">Réinitialiser mes données</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOURCES -->
+    <footer class="sources-footer">
+      <strong>Sources et appuis documentaires utilisés pour ce dossier :</strong>
+      Grille d’évaluation EPPCS de l’épreuve orale (commentaire d’une prestation physique, Académie de Rennes) ; travaux du groupe de secteur EPPCS 2025–2026 sur le questionnement d’entretien en Champ d’apprentissage n° 1 et bilan CA1 ; supports théoriques sur le saut en hauteur et le Fosbury Flop (Patrick Léger, Fédération Française d’Athlétisme — approche « par-dessus » ; Thierry Blancon — démarche d’entraînement et test spécifique de hauteur touchée) ; synthèses biomécaniques sur la course curviligne, l’avant-dernière foulée allongée et les profils Flop vitesse / Flop amplitude (Dapena, Luhtanen &amp; Komi) ; travaux sur le cycle étirement–raccourcissement, la pliométrie et l’élasticité du tendon d’Achille ; ressources pédagogiques « Contenus saut en hauteur », « Fondamentaux des sauts — principe P.E.R.U. » (EPS Formation) et séances types de pliométrie (U-Run).
+    </footer>
+
+  </main>
+
+  <api-shim></api-shim>
+  <script>
+    /* ============================================================
+       DONNÉES STRUCTURÉES (littéraux backtick pour apostrophes FR)
+       ============================================================ */
+
+    const PHASES_DATA = [
+      {
+        id: 0,
+        code: `PHASE 01`,
+        title: `Course d’élan rectiligne puis curviligne`,
+        topPath: `M 155 128 Q 252 128 312 102`,
+        topMarker: { x: 242, y: 119 },
+        topNote: `Inclinaison intérieure (force centripète)`,
+        objective: `Acquérir une vitesse horizontale optimale (7 à 8,5 m/s selon le profil) en ligne droite, puis l’entretenir dans les 3 à 5 dernières foulées en courbe (« en virgule ») afin d’abaisser le CG et de pré-charger les extenseurs.`,
+        mechanics: `La trajectoire courbe génère une force centrifuge compensée par une inclinaison latérale vers le centre du virage (force centripète, ~1,5 kg de surcharge apparente à 8 m/s pour 70 kg dans R = 32 m). Cette inclinaison produit une prise d’avance latérale des appuis qui place le pied d’appel entre la projection du CG et la barre, limitant la poussée excentrique. Les 3 derniers appuis s’alignent à 30°–40° de la barre.`,
+        physiology: `Mise en tension récessive (« écrasement ») des muscles antigravitaires des membres inférieurs et augmentation de la fréquence gestuelle (cycle avant actif, sans tassement du bassin).`,
+        videoCue: `Sur une vue de face, vérifiez l’inclinaison continue de tout le corps (de la cheville à la tête, sans casser le buste à la taille) et l’absence de décélération à l’entrée de la courbe.`,
+        errorTip: `Se redresser trop tôt dans le virage (perte de force centripète) ou piétiner avant les marques : la vitesse chute et l’appel s’aplatit vers le tapis.`
+      },
+      {
+        id: 1,
+        code: `PHASE 02`,
+        title: `Liaison course–appel : l’avant-dernière foulée allongée`,
+        topPath: `M 255 121 Q 285 113 301 107`,
+        topMarker: { x: 286, y: 113 },
+        topNote: `Pénultième posée, bassin abaissé`,
+        objective: `Servir de « frein contrôlé » pour abaisser le Centre de Gravité et pré-positionner les segments en vue du redressement vertical, sans casser la vitesse acquise.`,
+        mechanics: `Foulée volontairement plus longue et posée près de la projection du CG (contact talon–pointe, tibia quasi vertical à l’impact). Le buste s’incline légèrement en arrière (hanches un peu en avant des épaules). Le genou de la jambe d’appel reste ouvert à 165°–170° au contact et ne s’amortit que de 5° à 10°.`,
+        physiology: `Déclenchement du cycle étirement–raccourcissement (CER) : pré-activation isométrique des quadriceps et verrouillage de cheville en flexion dorsale, suivis d’une brève mise en tension excentrique (stockage d’énergie élastique dans les quadriceps, fessiers, ischio-jambiers et le tendon d’Achille).`,
+        videoCue: `De profil en plan fixe, observez l’abaissement visible de la ligne des hanches sur l’avant-dernier appui, accompagné d’une foulée plus longue que la dernière.`,
+        errorTip: `Fléchir exagérément le genou (perte massive de vitesse horizontale et de réactivité) ou tendre la jambe de façon rigide (absence d’abaissement du CG et d’orientation vers le haut).`
+      },
+      {
+        id: 2,
+        code: `PHASE 03`,
+        title: `L’impulsion « par-dessus » et les segments libres`,
+        topPath: `M 296 109 L 315 101`,
+        topMarker: { x: 315, y: 101 },
+        topNote: `Pied d’appel posé à 30°–40°`,
+        objective: `Déformer brutalement la trajectoire du CG vers le haut en 0,12 à 0,14 s en passant « par-dessus » un appui aligné, comme un bâton qui bute.`,
+        mechanics: `Pose du pied d’appel par le talon loin devant le CG (prise d’avance). Redressement complet à « 6 heures » : cheville, genou, hanche et épaule controlatérale alignés verticalement grâce au gainage abdominal et scapulaire. Les segments libres (genou libre et bras) sont lancés près de l’axe puis bloqués brutalement : la hanche libre fournit 56 % de la vitesse de décollage (Luhtanen & Komi) et amorce la rotation longitudinale.`,
+        physiology: `Restitution concentrique explosive (régime pliométrique, réflexe myotatique, recrutement massif des fibres rapides et restitution tendineuse).`,
+        videoCue: `De profil à l’instant du décollage, vérifiez que le regard et les épaules montent à la verticale du pied d’appel et que le genou libre est la conséquence de l’avancée du bassin (et non d’un recul des hanches).`,
+        errorTip: `Jeter les épaules vers la barre dès l’appel (création de rotations parasites et baisse du sommet de parabole) ou laisser les bras « mourir » sans blocage.`
+      },
+      {
+        id: 3,
+        code: `PHASE 04`,
+        title: `Franchissement, esquive dorsale et sécurité`,
+        topPath: `M 315 101 L 372 78`,
+        topMarker: { x: 355, y: 85 },
+        topNote: `Trajectoire au cœur du tapis`,
+        objective: `Organiser le masquage successif des segments (épaules, bassin, jambes) pour franchir la barre alors même que le CG peut passer sous celle-ci.`,
+        mechanics: `Maintien du grandissement jusqu’au point mort haut, puis bascule des épaules derrière la barre pendant que les talons se rapprochent des fesses (cambrure dorsale d’esquive du bassin). Dès que les hanches passent le plan vertical de la barre, un ramené dynamique des jambes évite le choc des mollets.`,
+        physiology: `Coordination intersegmentaire fine, relâchement relatif des fléchisseurs de hanche pendant la cambrure (souplesse lombaire et des quadriceps) suivi d’une contraction rapide des abdominaux et fléchisseurs pour le ramené.`,
+        videoCue: `De profil, vérifiez l’enchaînement cambrure → ramené au sommet de la courbe, le menton rentré sur la poitrine (regard vers les genoux, jamais vers le tapis) et la chute centrée sur les épaules.`,
+        errorTip: `S’asseoir au-dessus de la barre (regroupement prématuré des jambes sans cambrure) ou laisser la tête basculer en arrière en fin de saut (risque de choc des genoux au visage).`
+      }
+    ];
+
+    const QUESTIONS_DATA = [
+      {
+        id: `q1`,
+        cat: `ca1`,
+        catLabel: `Transversal CA1 & Vidéo`,
+        question: `Comment définissez-vous le Champ d’apprentissage n° 1 et quelles autres activités y retrouve-t-on ?`,
+        points: [
+          `Définition officielle : « Réaliser une performance motrice maximale mesurable à une échéance donnée ».`,
+          `Logique commune : produire, entretenir et restituer un maximum d’énergie mécanique (principe P.E.R.U.) dans un cadre réglementé et sécurisé, à une date fixée (concours ou compétition).`,
+          `Autres activités du CA1 : courses athlétiques (vitesse, haies, demi-fond), autres sauts (longueur, triple saut, perche), lancers (poids, disque, javelot) et natation de vitesse.`
+        ]
+      },
+      {
+        id: `q2`,
+        cat: `ca1`,
+        catLabel: `Transversal CA1 & Vidéo`,
+        question: `Quel est l’intérêt de l’analyse vidéo en CA1 et comment filmer efficacement un saut en hauteur ?`,
+        points: [
+          `Objectiver le ressenti kinesthésique : la vidéo confronte ce que l’élève croit faire (« j’ai sauté haut ») aux indicateurs réels (angle d’attaque, abaissement du CG, orientation des épaules).`,
+          `Protocole de prise de vue (Bilan CA1) : caméra <strong>de profil en plan fixe assez éloigné</strong> pour englober les 4 derniers appuis, l’impulsion et toute la parabole de franchissement.`,
+          `Complément <strong>de face</strong> : indispensable pour observer l’inclinaison latérale en courbe, le placement du pied d’appel et l’alignement cheville–genou–hanche–épaule.`
+        ]
+      },
+      {
+        id: `q3`,
+        cat: `ca1`,
+        catLabel: `Transversal CA1 & Vidéo`,
+        question: `Quelles qualités physiques sont communes entre le saut en hauteur et votre autre APSA de spécialité ou de prédilection ?`,
+        points: [
+          `Puissance explosive des membres inférieurs (Puissance = Force × Vitesse), décisive aussi bien en sprint, en sports collectifs (rebond, détente) ou en badminton (fente et impulsion).`,
+          `Qualité du cycle étirement–raccourcissement (raideur musculo-tendineuse et réactivité d’appui au sol).`,
+          `Gainage des ceintures abdominale et scapulaire pour transmettre les forces sans déperdition d’énergie ni rotations parasites.`
+        ]
+      },
+      {
+        id: `q4`,
+        cat: `biomeca`,
+        catLabel: `Biomécanique & Sauts`,
+        question: `Comment définir les segments libres et quel est leur rôle précis lors de l’impulsion ?`,
+        points: [
+          `Définition : ensemble des leviers excentriques par rapport au CG qui n’ont pas de contact avec le sol au moment de l’appel (jambe libre opposée au pied d’appel, les deux bras et la tête).`,
+          `Mécanisme du « lancer–fixer » : lancés près de l’axe du corps puis bloqués brutalement en fin de course, ils transfèrent leur énergie cinétique à la masse du corps (allégement de l’impulsion).`,
+          `Chiffre clé : selon Luhtanen et Komi (1978), l’action de la hanche libre contribue à <strong>56 % de la vitesse de décollage</strong>. De plus, les bras créent un moment d’inertie facilitant la rotation longitudinale.`
+        ]
+      },
+      {
+        id: `q5`,
+        cat: `biomeca`,
+        catLabel: `Biomécanique & Sauts`,
+        question: `Qu’est-ce qu’un cycle avant et un cycle arrière en course ? Lequel privilégier pour l’élan du Fosbury ?`,
+        points: [
+          `<strong>Cycle avant :</strong> le genou monte haut vers l’avant et le pied griffe activement le sol sous ou juste devant le CG ; il favorise l’accélération, la fréquence et la conservation d’un bassin haut.`,
+          `<strong>Cycle arrière :</strong> le talon reste en arrière des fesses avec un temps de soutien prolongé ; il provoque un tassement du bassin et freine l’enchaînement vers l’impulsion.`,
+          `En saut en hauteur, on privilégie un <strong>cycle avant dynamique</strong> dans la mise en action et la courbe afin d’arriver à la pénultième foulée avec une vitesse horizontale optimale.`
+        ]
+      },
+      {
+        id: `q6`,
+        cat: `biomeca`,
+        catLabel: `Biomécanique & Sauts`,
+        question: `Comment étalonner ses marques de course d’élan au saut en hauteur ?`,
+        points: [
+          `Méthode progressive recommandée en EPS : partir de la zone d’appel (en face du premier tiers du tapis, jamais devant le second poteau) et remonter la trajectoire à rebours.`,
+          `Construire d’abord les 3 derniers appuis alignés sous un angle de 30°–40° par rapport à la barre, puis ajouter la courbe et la ligne droite.`,
+          `Repère lycée (Cycle 4 / Terminale) : <strong>6 à 8 appuis maximum</strong> (par exemple 4 appuis en amplitude en ligne droite + 4 appuis en fréquence dans le virage en virgule), validés sans piétinement.`
+        ]
+      },
+      {
+        id: `q7`,
+        cat: `physio`,
+        catLabel: `Échauffement & Pliométrie`,
+        question: `Quel est l’intérêt spécifique de s’échauffer en saut en hauteur et quels exercices de gammes proposer ?`,
+        points: [
+          `Préparer le complexe muscle–tendon à des impulsions très brèves (0,12–0,14 s) : la hausse de température réduit la viscosité musculaire, améliore la conduction nerveuse et protège le tendon d’Achille et les quadriceps.`,
+          `Gammes spécifiques (2 × 10 s avec retour marché) : montées de genoux (cycle avant, psoas-iliaque et quadriceps), course jambes tendues / griffés (raideur de cheville, triceps sural), pas chassés et rebonds de cheville.`,
+          `Activation progressive : finir par 2 à 3 impulsions brèves sur 3 appuis en courbe avant d’attaquer les barres.`
+        ]
+      },
+      {
+        id: `q8`,
+        cat: `physio`,
+        catLabel: `Échauffement & Pliométrie`,
+        question: `Si vous deviez planifier une transformation technique ou physique sur un cycle, quels exercices et ressources cibleriez-vous ?`,
+        points: [
+          `Durée réaliste : <strong>6 à 8 semaines</strong> (à raison de 2 à 3 séances hebdomadaires) pour obtenir une adaptation neuromusculaire et tendineuse mesurable.`,
+          `Exercice spécifique de Thierry Blancon : test et travail de <strong>hauteur touchée</strong> (panneau de basket réglable) sur élan complet en virgule (6–8 foulées) pour fixer l’intention de monter vers le haut avec le bras opposé au pied d’appel.`,
+          `Renforcement pliométrique adapté : niveau débutant/lycée (5 × 8 sauts avec contremouvement et sauts multiples, récup 2 min) vers niveau avancé (bondissements sur haies basses de 20 cm ou drop jumps maîtrisés), ciblant l’explosivité et le CER.`
+        ]
+      },
+      {
+        id: `q9`,
+        cat: `sante`,
+        catLabel: `Santé, Culture & Règles`,
+        question: `Comment définissez-vous la santé, quelles sont les recommandations de l’OMS et quelles dérives observe-t-on parfois dans le CA1 ?`,
+        points: [
+          `Définition OMS : un état de complet bien-être physique, mental et social, et pas seulement l’absence de maladie ou d’infirmité.`,
+          `Recommandations OMS pour les adolescents (5–17 ans) : au moins <strong>60 minutes par jour</strong> d’activité physique d’intensité modérée à soutenue (incluant des activités renforçant le système musculaire et osseux au moins 3 fois par semaine).`,
+          `Dérives du CA1 : recherche de performance à tout prix conduisant au dopage, au surentraînement (tendinopathies d’Achille ou rotuliennes sans échauffement) ou à la prise de risque inconsidérée (impulsions sans contrôle de chute).`
+        ]
+      },
+      {
+        id: `q10`,
+        cat: `sante`,
+        catLabel: `Santé, Culture & Règles`,
+        question: `Quelles sont les règles fédérales majeures du saut en hauteur et quels champions illustrent l’histoire ou la biomécanique de la discipline ?`,
+        points: [
+          `Règlement fédéral (FFA / World Athletics) : appel sur un seul pied ; élimination après <strong>3 échecs consécutifs</strong> (possibilité de faire l’impasse) ; départage des ex aequo au plus petit nombre d’essais à la hauteur considérée, puis au moins grand nombre d’échecs sur l’ensemble du concours.`,
+          `Révolution technique : <strong>Dick Fosbury</strong> aux Jeux olympiques de Mexico en 1968 (popularisation du saut dorsal permis par l’arrivée des tapis en mousse).`,
+          `Records d’efficacité biomécanique : <strong>Stefan Holm</strong> (2,40 m pour 1,81 m) et <strong>Franklin Jacobs</strong> (2,32 m pour 1,73 m) partagent le différentiel record de <strong>+59 cm</strong> au-dessus de leur taille ; <strong>Donald Thomas</strong> (2,35 m) illustre l’apport d’un long tendon d’Achille (26 cm).`
+        ]
+      }
+    ];
+
+    const CHECKLIST_ITEMS = [
+      { id: `chk1`, text: `J’ai mesuré mon nombre exact d’appuis d’élan (ex. 6 à 8 appuis) et vérifié mon angle d’attaque (30°–40°).` },
+      { id: `chk2`, text: `J’ai identifié mon style dominant (Flop vitesse vs Flop amplitude) d’après ma taille et ma gestion des bras.` },
+      { id: `chk3`, text: `Je cite au moins 2 indicateurs quantitatifs et 2 indicateurs qualitatifs visibles sur ma vidéo (profil et/ou face).` },
+      { id: `chk4`, text: `Chaque notion théorique (force centripète, CER, 56 % segments libres) est reliée explicitement à un instant précis de la vidéo.` },
+      { id: `chk5`, text: `J’ai formulé une perspective d’entraînement réaliste (exercice précis, durée, ressources ciblées).` },
+      { id: `chk6`, text: `Je maîtrise les consignes de sécurité (menton poitrine, zone d’appel) et les repères OMS / règlement fédéral.` }
+    ];
+
+    /* ============================================================
+       ÉTAT DE L’APPLICATION & PERSISTANCE (notebookAppApi)
+       ============================================================ */
+    let appState = {
+      rubric: { analyse: 2, connaissances: 3, aisance: 0 },
+      activePhase: 0,
+      lab: { h0: 1.15, v0: 3.30, esquive: 4 },
+      qaFilter: `all`,
+      masteredIds: [],
+      openQaIds: [],
+      checklist: {},
+      personal: {
+        height: ``,
+        profile: `Flop vitesse (8 appuis : 4 rectilignes + 4 en courbe)`,
+        strength: ``,
+        weakness: `freinage-penultieme`,
+        drill: ``
+      }
+    };
+
+    let profilesChartInstance = null;
+
+    async function loadState() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === 'function') {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === 'object') {
+            appState = mergeDeep(appState, saved);
+          }
+        }
+      } catch (e) {
+        // Fallback silencieux si hors environnement hôte
+      }
+    }
+
+    async function saveState() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === 'function') {
+          await window.notebookAppApi.setAppState(appState);
+          const statusEl = document.getElementById('save-status-msg');
+          if (statusEl) {
+            statusEl.textContent = `Modifications enregistrées`;
+          }
+        }
+      } catch (e) {
+        // Ignore hors environnement hôte
+      }
+    }
+
+    function mergeDeep(target, source) {
+      const out = Object.assign({}, target);
+      if (source && typeof source === 'object') {
+        Object.keys(source).forEach(function(key) {
+          if (source[key] && typeof source[key] === 'object' && !Array.isArray(source[key]) && target[key]) {
+            out[key] = mergeDeep(target[key], source[key]);
+          } else {
+            out[key] = source[key];
+          }
+        });
+      }
+      return out;
+    }
+
+    /* ============================================================
+       OUTIL 01 : SIMULATEUR DE GRILLE EPPCS
+       ============================================================ */
+    function setRubricScore(field, val) {
+      appState.rubric[field] = Number(val);
+      renderRubric();
+      saveState();
+    }
+
+    function renderRubric() {
+      const a = appState.rubric.analyse;
+      const c = appState.rubric.connaissances;
+      const s = appState.rubric.aisance;
+      const rawTotal = a + c + s;
+      const clampedTotal = Math.max(0, Math.min(8, rawTotal));
+
+      const mapAnalyse = { 0.5: 'btn-ana-05', 1: 'btn-ana-10', 2: 'btn-ana-20', 3: 'btn-ana-30', 4: 'btn-ana-40' };
+      const mapConn = { 0.5: 'btn-con-05', 2: 'btn-con-20', 3: 'btn-con-30', 4: 'btn-con-40' };
+      const mapAis = { '-1': 'btn-ais--1', '-0.5': 'btn-ais--05', '0': 'btn-ais-0', '0.5': 'btn-ais-05', '1': 'btn-ais-1' };
+
+      Object.keys(mapAnalyse).forEach(function(k) {
+        const btn = document.getElementById(mapAnalyse[k]);
+        if (btn) btn.classList.toggle('active', Number(k) === a);
+      });
+      Object.keys(mapConn).forEach(function(k) {
+        const btn = document.getElementById(mapConn[k]);
+        if (btn) btn.classList.toggle('active', Number(k) === c);
+      });
+      Object.keys(mapAis).forEach(function(k) {
+        const btn = document.getElementById(mapAis[k]);
+        if (btn) btn.classList.toggle('active', Number(k) === s);
+      });
+
+      const totalEl = document.getElementById('rubric-total-display');
+      if (totalEl) totalEl.textContent = `${clampedTotal.toFixed(1).replace('.', ',')} / 8`;
+
+      const fillEl = document.getElementById('rubric-meter-fill');
+      if (fillEl) fillEl.style.width = `${(clampedTotal / 8) * 100}%`;
+
+      const breakEl = document.getElementById('rubric-breakdown-line');
+      if (breakEl) {
+        const sign = s > 0 ? `+${s}` : `${s}`;
+        breakEl.textContent = `Analyse : ${a.toString().replace('.', ',')} pts · Connaissances : ${c.toString().replace('.', ',')} pts · Aisance : ${sign.replace('.', ',')} pt`;
+      }
+
+      const titleEl = document.getElementById('rubric-profile-title');
+      const advEl = document.getElementById('rubric-profile-advice');
+      if (titleEl && advEl) {
+        if (a <= 1 || c <= 1) {
+          titleEl.textContent = `Profil : Descriptif ou approximatif`;
+          advEl.textContent = `Le jury attend des faits observables chiffrés (nombre d’appuis, angle d’attaque, hauteur touchée) et un vocabulaire scientifique rigoureux (force centripète, cycle étirement–raccourcissement) plutôt qu’un récit de séance.`;
+        } else if (a < 3 || c < 3) {
+          titleEl.textContent = `Profil : Connaissances encore plaquées`;
+          advEl.textContent = `Pour franchir la barre des 3 à 4 points sur chaque critère, créez un lien explicite entre un moment exact de la vidéo et une explication mécanique, puis proposez une piste concrète de remédiation.`;
+        } else {
+          titleEl.textContent = `Profil : Analyse réflexive et prospective`;
+          advEl.textContent = `Niveau visé à l’oral : indicateurs précis, connaissances biomécaniques utiles et projection réaliste d’entraînement. Maintenez une expression fluide et un regard critique sur votre prestation.`;
+        }
+      }
+    }
+
+    /* ============================================================
+       OUTIL 02 : EXPLORATEUR BIOMÉCANIQUE DES 4 PHASES
+       ============================================================ */
+    function selectPhase(index) {
+      if (index < 0 || index >= PHASES_DATA.length) return;
+      appState.activePhase = index;
+      renderPhaseExplorer();
+      saveState();
+    }
+
+    function renderPhaseExplorer() {
+      const idx = appState.activePhase;
+      const data = PHASES_DATA[idx];
+
+      for (let i = 0; i < PHASES_DATA.length; i++) {
+        const btn = document.getElementById(`phase-btn-${i}`);
+        if (btn) {
+          btn.classList.toggle('active', i === idx);
+          btn.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+        }
+      }
+
+      const metaEl = document.getElementById('phase-indicator-meta');
+      if (metaEl) metaEl.textContent = `Phase 0${idx + 1} / 04`;
+
+      const topActive = document.getElementById('svg-top-active');
+      const topMarker = document.getElementById('svg-top-marker');
+      const topNote = document.getElementById('svg-top-note');
+      if (topActive) topActive.setAttribute('d', data.topPath);
+      if (topMarker) {
+        topMarker.setAttribute('cx', String(data.topMarker.x));
+        topMarker.setAttribute('cy', String(data.topMarker.y));
+      }
+      if (topNote) topNote.textContent = data.topNote;
+
+      const profGroup = document.getElementById('svg-profile-dynamic');
+      if (profGroup) {
+        profGroup.innerHTML = buildProfileSvgMarkup(idx);
+      }
+
+      const detailEl = document.getElementById('phase-detail-panel');
+      if (detailEl) {
+        detailEl.innerHTML = `
+          <div>
+            <span class="tag-chip">${data.code}</span>
+            <h4 class="subhead" style="margin-top: var(--space-xs);">${data.title}</h4>
+          </div>
+          <div class="detail-datum">
+            <div class="detail-datum-title">Objectif biomécanique</div>
+            <p style="margin: 0;">${data.objective}</p>
+          </div>
+          <div class="detail-datum">
+            <div class="detail-datum-title">Paramètres &amp; angles clés</div>
+            <p style="margin: 0;">${data.mechanics}</p>
+          </div>
+          <div class="detail-datum">
+            <div class="detail-datum-title">Physiologie musculaire &amp; régimes</div>
+            <p style="margin: 0;">${data.physiology}</p>
+          </div>
+          <div class="detail-datum">
+            <div class="detail-datum-title">Repère à pointer sur votre vidéo</div>
+            <p style="margin: 0;">${data.videoCue}</p>
+          </div>
+          <div class="detail-datum alert">
+            <div class="detail-datum-title">Erreur fréquente à diagnostiquer</div>
+            <p style="margin: 0;">${data.errorTip}</p>
+          </div>
+        `;
+      }
+    }
+
+    function buildProfileSvgMarkup(idx) {
+      if (idx === 0) {
+        return `
+          <rect x="64" y="218" width="90" height="132" rx="4" class="svg-zone-highlight" />
+          <path d="M 102 348 L 114 316 L 122 284 L 132 246" class="svg-athlete" />
+          <line x1="122" y1="284" x2="94" y2="322" class="svg-athlete" />
+          <line x1="128" y1="256" x2="152" y2="274" class="svg-athlete" />
+          <line x1="128" y1="256" x2="105" y2="274" class="svg-athlete" />
+          <circle cx="136" cy="234" r="9" class="svg-athlete-head" />
+          <circle cx="122" cy="282" r="6" class="svg-cg" />
+          <line x1="122" y1="282" x2="178" y2="282" class="svg-vector" />
+          <polygon points="178,282 170,277 170,287" fill="var(--data-2)" />
+          <text x="128" y="212" class="svg-label-strong">Vitesse 7–8,5 m/s · Inclinaison latérale</text>
+        `;
+      }
+      if (idx === 1) {
+        return `
+          <rect x="148" y="220" width="96" height="130" rx="4" class="svg-zone-highlight" />
+          <path d="M 186 348 L 194 316 L 194 288 L 186 248" class="svg-athlete" />
+          <line x1="194" y1="288" x2="158" y2="330" class="svg-athlete" />
+          <line x1="188" y1="258" x2="164" y2="282" class="svg-athlete" />
+          <line x1="188" y1="258" x2="212" y2="276" class="svg-athlete" />
+          <circle cx="184" cy="236" r="9" class="svg-athlete-head" />
+          <circle cx="194" cy="292" r="6" class="svg-cg" />
+          <line x1="194" y1="292" x2="194" y2="332" class="svg-vector" />
+          <text x="206" y="324" class="svg-label-strong">Genou 165–170° · CER excentrique</text>
+          <text x="135" y="212" class="svg-label-strong">CG abaissé sans freiner</text>
+        `;
+      }
+      if (idx === 2) {
+        return `
+          <rect x="236" y="200" width="98" height="150" rx="4" class="svg-zone-highlight" />
+          <line x1="274" y1="348" x2="274" y2="244" class="svg-athlete" />
+          <path d="M 274 284 L 304 274 L 302 304" class="svg-athlete" />
+          <line x1="274" y1="254" x2="298" y2="226" class="svg-athlete" />
+          <line x1="274" y1="254" x2="252" y2="232" class="svg-athlete" />
+          <circle cx="274" cy="232" r="9" class="svg-athlete-head" />
+          <circle cx="274" cy="280" r="6" class="svg-cg" />
+          <line x1="274" y1="280" x2="284" y2="210" class="svg-vector" />
+          <polygon points="284,210 278,218 288,219" fill="var(--data-2)" />
+          <text x="190" y="210" class="svg-label-strong">Alignement « 6 h » · Blocage segments (56 %)</text>
+        `;
+      }
+      return `
+        <rect x="315" y="198" width="130" height="92" rx="4" class="svg-zone-highlight" />
+        <path d="M 332 260 Q 368 220 402 252" class="svg-athlete" />
+        <path d="M 332 260 L 312 282" class="svg-athlete" />
+        <path d="M 402 252 L 420 282" class="svg-athlete" />
+        <circle cx="410" cy="264" r="9" class="svg-athlete-head" />
+        <circle cx="366" cy="252" r="6" class="svg-cg" />
+        <text x="372" y="192" text-anchor="middle" class="svg-label-strong">Esquive : CG sous la barre, menton poitrine</text>
+      `;
+    }
+
+    /* ============================================================
+       OUTIL 03 : GRAPHIQUE CHART.JS & LABORATOIRE PHYSIQUE
+       ============================================================ */
+    function initProfilesChart() {
+      const canvas = document.getElementById('profiles-chart');
+      if (!canvas || typeof Chart === 'undefined') return;
+
+      const styles = getComputedStyle(document.documentElement);
+      const data1 = styles.getPropertyValue('--data-1').trim() || '#1f4e5f';
+      const data2 = styles.getPropertyValue('--data-2').trim() || '#d99000';
+      const data3 = styles.getPropertyValue('--data-3').trim() || '#2b6e52';
+      const textCol = styles.getPropertyValue('--on-surface-variant').trim() || '#56585c';
+      const gridCol = styles.getPropertyValue('--outline-variant').trim() || '#dedad0';
+      const fontMono = styles.getPropertyValue('--font-label').trim() || 'monospace';
+
+      if (profilesChartInstance) {
+        profilesChartInstance.destroy();
+      }
+
+      profilesChartInstance = new Chart(canvas, {
+        type: 'bar',
+        data: {
+          labels: ['Fosbury Vitesse', 'Fosbury Amplitude', 'Saut Ventral'],
+          datasets: [
+            {
+              label: `Vitesse d’approche (m/s)`,
+              data: [8.25, 7.25, 7.0],
+              backgroundColor: data1,
+              borderRadius: 3
+            },
+            {
+              label: `Durée d’impulsion (×10 ms, ex. 14 = 0,14 s)`,
+              data: [12.5, 14.0, 22.0],
+              backgroundColor: data2,
+              borderRadius: 3
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: {
+                color: textCol,
+                font: { family: fontMono, size: 11 }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: { color: textCol, font: { family: fontMono, size: 11 } }
+            },
+            y: {
+              beginAtZero: true,
+              grid: { color: gridCol },
+              ticks: { color: textCol, font: { family: fontMono, size: 11 } }
+            }
+          }
+        }
+      });
+    }
+
+    function syncLabFromSlider(key, val) {
+      const numVal = Number(val);
+      if (Number.isNaN(numVal)) return;
+      appState.lab[key] = numVal;
+      const numInput = document.getElementById(`input-${key}`);
+      if (numInput) numInput.value = val;
+      renderLab();
+      saveState();
+    }
+
+    function syncLabFromNumber(key, val) {
+      const numVal = Number(val);
+      if (Number.isNaN(numVal)) return;
+      appState.lab[key] = numVal;
+      const sliderInput = document.getElementById(`slider-${key}`);
+      if (sliderInput) sliderInput.value = val;
+      renderLab();
+      saveState();
+    }
+
+    function renderLab() {
+      const h0 = Math.max(0.8, Math.min(1.6, Number(appState.lab.h0) || 1.15));
+      const v0 = Math.max(1.5, Math.min(5.5, Number(appState.lab.v0) || 3.30));
+      const esqCm = Math.max(-15, Math.min(18, Number(appState.lab.esquive) || 0));
+      const esqM = esqCm / 100;
+
+      const g = 9.81;
+      const deltaH = (v0 * v0) / (2 * g);
+      const maxCg = h0 + deltaH;
+      const barH = maxCg + esqM;
+
+      const barEl = document.getElementById('lab-bar-height');
+      const deltaEl = document.getElementById('lab-delta-h');
+      const maxCgEl = document.getElementById('lab-max-cg');
+      const detailEl = document.getElementById('lab-formula-detail');
+      const takeawayEl = document.getElementById('lab-oral-takeaway');
+
+      if (barEl) barEl.textContent = `${barH.toFixed(2).replace('.', ',')} m`;
+      if (deltaEl) deltaEl.textContent = `${deltaH.toFixed(2).replace('.', ',')} m`;
+      if (maxCgEl) maxCgEl.textContent = `${maxCg.toFixed(2).replace('.', ',')} m`;
+      if (detailEl) {
+        const sign = esqM >= 0 ? `+${esqM.toFixed(2)}` : `${esqM.toFixed(2)}`;
+        detailEl.textContent = `h₀ (${h0.toFixed(2).replace('.', ',')} m) + élévation ΔH (${deltaH.toFixed(2).replace('.', ',')} m) + esquive (${sign.replace('.', ',')} m)`;
+      }
+      if (takeawayEl) {
+        if (esqCm < 0) {
+          takeawayEl.textContent = `Attention : un franchissement « assis » ou sans cambrure fait perdre ${Math.abs(esqCm)} cm par rapport à l’altitude déjà atteinte par votre Centre de Gravité. C’est l’objet de la phase 4 après avoir sécurisé l’appel.`;
+        } else {
+          takeawayEl.textContent = `Parce que V₀ intervient au carré dans H = V₀² / 2g, augmenter la vitesse verticale de 0,20 m/s (course en courbe, pénultième maîtrisée, lancer-fixer des segments libres) génère un gain supérieur à l’optimisation de l’esquive.`;
+        }
+      }
+
+      ['h0', 'v0', 'esquive'].forEach(function(k) {
+        const sEl = document.getElementById(`slider-${k}`);
+        const nEl = document.getElementById(`input-${k}`);
+        if (sEl && document.activeElement !== sEl) sEl.value = appState.lab[k];
+        if (nEl && document.activeElement !== nEl) nEl.value = appState.lab[k];
+      });
+    }
+
+    /* ============================================================
+       OUTIL 04 : BANQUE D’ENTRETIEN DU JURY
+       ============================================================ */
+    function filterQuestions(cat) {
+      appState.qaFilter = cat;
+      renderQuestions();
+      saveState();
+    }
+
+    function toggleQuestionAnswer(qId) {
+      const idx = appState.openQaIds.indexOf(qId);
+      if (idx === -1) {
+        appState.openQaIds.push(qId);
+      } else {
+        appState.openQaIds.splice(idx, 1);
+      }
+      renderQuestions();
+      saveState();
+    }
+
+    function toggleQuestionMastered(qId) {
+      const idx = appState.masteredIds.indexOf(qId);
+      if (idx === -1) {
+        appState.masteredIds.push(qId);
+      } else {
+        appState.masteredIds.splice(idx, 1);
+      }
+      renderQuestions();
+      saveState();
+    }
+
+    function pickRandomQuestion() {
+      const pool = appState.qaFilter === 'all'
+        ? QUESTIONS_DATA
+        : QUESTIONS_DATA.filter(function(q) { return q.cat === appState.qaFilter; });
+      if (pool.length === 0) return;
+      const chosen = pool[Math.floor(Math.random() * pool.length)];
+      if (appState.openQaIds.indexOf(chosen.id) === -1) {
+        appState.openQaIds.push(chosen.id);
+      }
+      renderQuestions();
+      const card = document.getElementById(`card-${chosen.id}`);
+      if (card) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function renderQuestions() {
+      const cats = ['all', 'ca1', 'biomeca', 'physio', 'sante'];
+      cats.forEach(function(c) {
+        const btn = document.getElementById(`filter-${c}`);
+        if (btn) btn.classList.toggle('active', appState.qaFilter === c);
+      });
+
+      const counterEl = document.getElementById('qa-mastery-counter');
+      if (counterEl) {
+        counterEl.textContent = `${appState.masteredIds.length} / ${QUESTIONS_DATA.length} questions maîtrisées`;
+      }
+
+      const listEl = document.getElementById('qa-list');
+      if (!listEl) return;
+
+      const filtered = appState.qaFilter === 'all'
+        ? QUESTIONS_DATA
+        : QUESTIONS_DATA.filter(function(q) { return q.cat === appState.qaFilter; });
+
+      listEl.innerHTML = filtered.map(function(q) {
+        const isOpen = appState.openQaIds.indexOf(q.id) !== -1;
+        const isMastered = appState.masteredIds.indexOf(q.id) !== -1;
+        const pointsHtml = q.points.map(function(pt) { return `<li>${pt}</li>`; }).join('');
+        return `
+          <article class="qa-card ${isMastered ? 'mastered' : ''}" id="card-${q.id}">
+            <div class="qa-header">
+              <div>
+                <span class="tag-chip secondary">${q.catLabel}</span>
+                ${isMastered ? '<span class="tag-chip positive" style="margin-left: var(--space-xs);">Maîtrisée</span>' : ''}
+                <h3 class="qa-question">${q.question}</h3>
+              </div>
+            </div>
+            <div class="qa-actions">
+              <button type="button" class="btn btn-secondary" onclick="toggleQuestionAnswer('${q.id}')" aria-expanded="${isOpen ? 'true' : 'false'}">
+                ${isOpen ? 'Masquer les pistes de réponse' : 'Révéler les pistes de réponse'}
+              </button>
+              <button type="button" class="btn-pill ${isMastered ? 'active' : ''}" onclick="toggleQuestionMastered('${q.id}')">
+                ${isMastered ? 'Question maîtrisée ✓' : 'Marquer comme maîtrisée'}
+              </button>
+            </div>
+            <div class="qa-answer ${isOpen ? 'open' : ''}">
+              <div class="detail-datum-title">Éléments attendus par le jury</div>
+              <ul>${pointsHtml}</ul>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    /* ============================================================
+       OUTIL 05 : TRAME ORALE PERSONNELLE & CHECKLIST
+       ============================================================ */
+    const WEAKNESS_MAP = {
+      'freinage-penultieme': {
+        label: `Freinage excessif ou flexion marquée sur l’avant-dernière foulée`,
+        theory: `Sur ma vidéo de profil, la flexion trop prononcée du genou sur la pénultième foulée (au-delà des 5–10° d’amorti optimaux) casse la vitesse horizontale et compromet la restitution d’énergie élastique du cycle étirement–raccourcissement.`,
+        remedy: `Étalonner précisément 8 appuis (4 en amplitude + 4 en fréquence) et travailler l’enchaînement pénultième–appel avec impulsions brèves en tension récessive.`
+      },
+      'appel-barre': {
+        label: `Impulsion dirigée vers la barre plutôt qu’à la verticale`,
+        theory: `L’analyse de profil montre un buste qui bascule vers la barre avant le décollage, brisant l’alignement vertical cheville–genou–hanche–épaule (« corps à 6 heures »). L’énergie est alors déviée horizontalement au lieu de maximiser V₀.`,
+        remedy: `Réaliser le test de hauteur touchée (panneau de basket) avec élan en courbe pour automatiser le « passage par-dessus » l’appui et le blocage vertical des segments libres.`
+      },
+      'courbe-redresse': {
+        label: `Redressement prématuré dans la course curviligne`,
+        theory: `En vue de face, mon buste se redresse à l’entrée des 3 derniers appuis. Je perds l’inclinaison centripète qui abaisse le CG, diminue la prise d’avance latérale des appuis et réduit la mise en tension des muscles antigravitaires.`,
+        remedy: `Répéter des courses en virgule de 6 à 8 appuis matérialisées au sol (angle d’attaque 30°–40°) en maintenant le regard orienté vers le premier tiers du tapis.`
+      },
+      'esquive-assise': {
+        label: `Franchissement assis (défaut de cambrure ou ramené tardif)`,
+        theory: `Alors que mon impulsion élève correctement le CG, mes jambes restent regroupées au-dessus de la barre par relâchement prématuré et défaut de bascule d’épaules, annulant l’avantage du Fosbury (où le CG peut passer sous la barre).`,
+        remedy: `Travailler la coordination cambrure → ramené dynamique (menton sur la poitrine) sur élan réduit avec surélévation légère (banc d’impulsion sécurisé) pour augmenter le temps de suspension.`
+      }
+    };
+
+    function renderChecklist() {
+      const container = document.getElementById('checklist-container');
+      const countEl = document.getElementById('checklist-count');
+      if (!container) return;
+
+      let checkedCount = 0;
+      container.innerHTML = CHECKLIST_ITEMS.map(function(item) {
+        const isChecked = Boolean(appState.checklist[item.id]);
+        if (isChecked) checkedCount++;
+        return `
+          <label class="checklist-item" for="${item.id}">
+            <input type="checkbox" id="${item.id}" ${isChecked ? 'checked' : ''} onchange="toggleChecklistItem('${item.id}', this.checked)">
+            <span style="font-size: 0.9375rem;">${item.text}</span>
+          </label>
+        `;
+      }).join('');
+
+      if (countEl) countEl.textContent = String(checkedCount);
+    }
+
+    function toggleChecklistItem(id, checked) {
+      appState.checklist[id] = Boolean(checked);
+      renderChecklist();
+      saveState();
+    }
+
+    function updatePersonalTrame() {
+      const hEl = document.getElementById('prep-height');
+      const pEl = document.getElementById('prep-profile');
+      const sEl = document.getElementById('prep-strength');
+      const wEl = document.getElementById('prep-weakness');
+      const dEl = document.getElementById('prep-drill');
+
+      if (hEl) appState.personal.height = hEl.value;
+      if (pEl) appState.personal.profile = pEl.value;
+      if (sEl) appState.personal.strength = sEl.value;
+      if (wEl) appState.personal.weakness = wEl.value;
+      if (dEl) appState.personal.drill = dEl.value;
+
+      renderPersonalTrame();
+      saveState();
+    }
+
+    function renderPersonalTrame() {
+      const hEl = document.getElementById('prep-height');
+      const pEl = document.getElementById('prep-profile');
+      const sEl = document.getElementById('prep-strength');
+      const wEl = document.getElementById('prep-weakness');
+      const dEl = document.getElementById('prep-drill');
+
+      if (hEl && document.activeElement !== hEl) hEl.value = appState.personal.height;
+      if (pEl && document.activeElement !== pEl) pEl.value = appState.personal.profile;
+      if (sEl && document.activeElement !== sEl) sEl.value = appState.personal.strength;
+      if (wEl && document.activeElement !== wEl) wEl.value = appState.personal.weakness;
+      if (dEl && document.activeElement !== dEl) dEl.value = appState.personal.drill;
+
+      const outEl = document.getElementById('trame-output');
+      if (!outEl) return;
+
+      const hText = appState.personal.height.trim() || `[Hauteur de barre à renseigner]`;
+      const sText = appState.personal.strength.trim() || `En vue de profil, la progressivité rythmique de mon élan curviligne est régulière jusqu’aux trois derniers appuis.`;
+      const weak = WEAKNESS_MAP[appState.personal.weakness] || WEAKNESS_MAP['freinage-penultieme'];
+      const dText = appState.personal.drill.trim() || weak.remedy;
+
+      outEl.innerHTML = `
+        <p style="margin: 0 0 var(--space-sm);"><strong>1. Cadrage :</strong> « Dans cette séquence filmée de profil (plan fixe) à <strong>${escapeHtml(hText)}</strong>, j’utilise un profil de <strong>${escapeHtml(appState.personal.profile)}</strong> avec une approche à 30°–40° de la barre. »</p>
+        <p style="margin: 0 0 var(--space-sm);"><strong>2. Point fort observé :</strong> « ${escapeHtml(sText)} »</p>
+        <p style="margin: 0 0 var(--space-sm);"><strong>3. Analyse biomécanique du point perfectible (${escapeHtml(weak.label)}) :</strong> « ${weak.theory} »</p>
+        <p style="margin: 0;"><strong>4. Perspective d’entraînement :</strong> « Pour corriger ce facteur limitant sur un cycle de 6 semaines, je propose : ${escapeHtml(dText)} »</p>
+      `;
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function exportPersonalBrief() {
+      const weak = WEAKNESS_MAP[appState.personal.weakness] || WEAKNESS_MAP['freinage-penultieme'];
+      const hText = appState.personal.height.trim() || 'Non renseignée';
+      const sText = appState.personal.strength.trim() || 'À compléter avec vos indicateurs vidéo.';
+      const dText = appState.personal.drill.trim() || weak.remedy;
+
+      const content = [
+        'FICHE ORALE EPPCS - CHAMP D\'APPRENTISSAGE 1 : SAUT EN HAUTEUR (FOSBURY FLOP)',
+        '=========================================================================',
+        '',
+        `Performance / Barre filmée : ${hText}`,
+        `Profil et élan : ${appState.personal.profile}`,
+        '',
+        '1. POINT FORT OBSERVÉ (AVEC INDICATEURS) :',
+        sText,
+        '',
+        `2. AXE DE PROGRÈS & EXPLICATION BIOMÉCANIQUE (${weak.label}) :`,
+        weak.theory,
+        '',
+        '3. PERSPECTIVE D\'ENTRAÎNEMENT :',
+        dText,
+        '',
+        `Auto-évaluation grille EPPCS : Analyse ${appState.rubric.analyse}/4 | Connaissances ${appState.rubric.connaissances}/4 | Aisance ${appState.rubric.aisance}`,
+        `Questions d'entretien maîtrisées : ${appState.masteredIds.length}/${QUESTIONS_DATA.length}`
+      ].join('\n');
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === 'function') {
+        window.notebookAppApi.triggerFileDownload({
+          content: content,
+          contentType: 'text/plain',
+          encoding: 'UTF-8',
+          filename: 'fiche-orale-eppcs-saut-hauteur.txt'
+        });
+      }
+      const statusEl = document.getElementById('save-status-msg');
+      if (statusEl) statusEl.textContent = `Fiche exportée (.txt)`;
+    }
+
+    function handleResetClick(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== 'true') {
+        btn.dataset.armed = 'true';
+        btn.textContent = `Cliquer encore pour confirmer`;
+        return;
+      }
+      btn.dataset.armed = 'false';
+      btn.textContent = `Réinitialiser mes données`;
+      appState = {
+        rubric: { analyse: 2, connaissances: 3, aisance: 0 },
+        activePhase: 0,
+        lab: { h0: 1.15, v0: 3.30, esquive: 4 },
+        qaFilter: `all`,
+        masteredIds: [],
+        openQaIds: [],
+        checklist: {},
+        personal: {
+          height: ``,
+          profile: `Flop vitesse (8 appuis : 4 rectilignes + 4 en courbe)`,
+          strength: ``,
+          weakness: `freinage-penultieme`,
+          drill: ``
+        }
+      };
+      renderAll();
+      saveState();
+      const statusEl = document.getElementById('save-status-msg');
+      if (statusEl) statusEl.textContent = `Données réinitialisées`;
+    }
+
+    function renderAll() {
+      renderRubric();
+      renderPhaseExplorer();
+      renderLab();
+      renderQuestions();
+      renderChecklist();
+      renderPersonalTrame();
+    }
+
+    async function initApp() {
+      await loadState();
+      renderAll();
+      initProfilesChart();
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === 'function') {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initApp);
+  </script>
+</body>
+</html>
